@@ -51,4 +51,4 @@ spec:
 #    nodePort: 30080
 #    protocol: TCP
 #  selector:
-#    run: my-nginx
+##    run: my-nginx
