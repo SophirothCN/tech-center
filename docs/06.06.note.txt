@@ -1,0 +1,174 @@
+以默认的方式添加 一个Linux用户
+
+useradd alvin1
+
+为alvin1设置密码
+passwd alvin1
+
+进入到指定目录
+
+cd /home/alvin1
+
+查看当前所在位置
+
+[root@huangyk alvin1]# pwd
+/home/alvin1
+
+退回到当前用户的家目录
+[root@huangyk alvin1]# cd
+[root@huangyk ~]# 
+[root@huangyk ~]# pwd
+/root
+
+删除指定用户 
+
+[root@huangyk ~]# userdel alvin1
+
+查看指定目录下的内容
+
+[root@huangyk ~]# ls /home/alvin1/
+[root@huangyk ~]# 
+
+指定uid创建用户
+[root@huangyk ~]# useradd -u 802 alvin2
+
+删除用户的同时，删除用户的家目录和邮件
+[root@huangyk ~]# userdel -r alvin2
+
+
+创建组
+[root@huangyk ~]# groupadd alvingroup
+
+修改组，指定组id  
+
+
+创建一个无法登录的用户
+[root@huangyk ~]# useradd -s /sbin/nologin -M alvin4
+切换用户
+
+[root@huangyk ~]# useradd alvin5
+
+[root@huangyk ~]# 
+[root@huangyk ~]# passwd alvin5
+更改用户 alvin5 的密码 。
+新的 密码：
+无效的密码： 它基于字典单词
+无效的密码： 过于简单
+重新输入新的 密码：
+passwd： 所有的身份验证令牌已经成功更新。
+[root@huangyk ~]# 
+[root@huangyk ~]# su - alvin5
+
+
+查看当前用户
+[alvin5@huangyk ~]$ whoami
+alvin5
+
+查看指定用户的uid 和gid
+
+[alvin5@huangyk ~]$ id alvin5
+uid=605(alvin5) gid=605(alvin5) 组=605(alvin5)
+
+
+##主属组 上面的内容中，前面的gid，代表的是主属组， 后面的组，是副属组。
+区别在于，一个用户可以有多个副属组，但只能有一个主属组。  
+
+修改用户所属组，改为alvingroup
+[root@huangyk ~]# usermod -g alvingroup alvin5
+[root@huangyk ~]# 
+[root@huangyk ~]# id alvin5
+uid=605(alvin5) gid=888(alvingroup) 组=888(alvingroup)
+[root@huangyk ~]# 
+
+为alvin5添加副属组
+
+[root@huangyk ~]# usermod -G testalvin alvin5
+[root@huangyk ~]# 
+[root@huangyk ~]# id alvin5
+uid=605(alvin5) gid=888(alvingroup) 组=888(alvingroup),890(testalvin)
+[root@huangyk ~]# 
+
+[root@huangyk ~]# 
+[root@huangyk ~]# su - alvin5
+[alvin5@huangyk ~]$ 
+[alvin5@huangyk ~]$ touch file
+[alvin5@huangyk ~]$ 
+[alvin5@huangyk ~]$ ls
+file
+[alvin5@huangyk ~]$ ls -l
+总用量 0
+-rw-r--r-- 1 alvin5 alvingroup 0 6月   6 16:53 file
+[alvin5@huangyk ~]$ 
+## 上面查看到的内容中，alvin5， 代表文件所属着， alvingroup，代表文件所属组。
+
+
+在/目录下创建一个名为alvin的目录。
+[root@huangyk ~]# mkdir /alvin
+进入到/alvin目录
+
+权限的管理
+查看文件的详细信息
+[root@huangyk alvin]# ls -l
+总用量 0
+-rw-r--r-- 1 root root 0 6月   6 16:57 file
+
+##
+这个东西，就是权限: -rw-r--r--
+第一个"-"，代表文件， 后面的r，代表read，读，r后面的w，代表写write，w后面的-，代表没有权限。
+从第一个-开始，后面三个符号代表该文件所属者的权限。再后面的三个字符，代表该文件所属组的权限，最后的三个，代表其他用户对该文件的权限。
+
+
+
+创建一个名为dir的目录
+
+[root@huangyk alvin]# mkdir dir
+[root@huangyk alvin]# 
+[root@huangyk alvin]# ls -l
+总用量 4
+drwxr-xr-x 2 root root 4096 6月   6 17:10 dir
+-rw----r-- 1 root root    0 6月   6 16:57 file
+[root@huangyk alvin]# 
+
+给一个文件所有权限
+[root@huangyk alvin]# chmod 777 file 
+[root@huangyk alvin]# 
+[root@huangyk alvin]# ls -l
+总用量 4
+drwxr-xr-x 2 root root 4096 6月   6 17:10 dir
+
+执行chmod 777 file，之后，所有的权限都被打开了。
+
+
+7代表什么呢？  7代表 4+2+1, 其中，4,代表r,2 代表w，1代表x。
+
+
+acl 权限
+
+对用户设置关于目录的acl
+
+查看目录的acl设置
+[root@huangyk alvin]# getfacl dir
+# file: dir
+# owner: root
+# group: root
+user::rwx
+group::r-x
+other::---
+
+[root@huangyk alvin]# 
+
+为dir目录设置acl，时alvin5用户对它有可读可写可执行权限
+
+[root@huangyk alvin]# setfacl -m u:alvin5:rwx dir
+
+为dir目录设置acl，使galvin1组，对他拥有rx 读和进入权限。
+
+[root@huangyk alvin]# setfacl -m g:galvin1:rx dir
+[root@huangyk alvin]# 
+
+删除dir的目录里，alvin5的acl权限。
+[root@huangyk alvin]# 
+[root@huangyk alvin]# setfacl -x u:alvin5 dir
+[root@huangyk alvin]# 
+
+
