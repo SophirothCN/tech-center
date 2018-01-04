@@ -2,3 +2,7 @@
 ```
 Example: telnet baidu.com 80sophitest
 ```
+```bash
+echo "hello" >> /tmp/log.txt
+ls
+```
