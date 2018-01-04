@@ -1,0 +1,32 @@
+```
+http://www.linuxdiyf.com/linux/2800.html
+
+curl 发送post请求，传参
+curl -l -H Content-type:application/json -X POST --data '{"appVersion":"5.0.1","loginName":"17898852496","operatorUserId":"string","pageNo":"-1","password":"f379eaf3c831b04de153469d1bec345e","phoneType":"iPhone 7__iOS10.3.1","platformCode":"pangProApp","rowsPerPage":10,"sessionid":"88888888888888888888888888888888"}' http://cbp.shenmintech.com:5556/shenmin-authority/authority/loginWithPassword
+
+
+curl下载东西。
+curl -sSL http://www.golangtc.com/static/go/1.6.2/go1.6.2.linux-amd64.tar.gz -o o1.6.2.linux-amd64.tar.gz
+
+
+curl -I alv.pub  #查看目标服务器使用的web服务名称和版本
+
+
+curl 使用用户名和密码
+
+curl -u alvin:wankaihao k8s.shenmin.com 
+
+
+
+#查看自己的公网IP
+curl ipinfo.io
+
+ 执行从http 上获取内容。
+wget -q -O - https://raw.githubusercontent.com/AlvinWanCN/scripts/master/shell/k8s/syncFlannelToDocker.sh|bash
+
+
+
+用curl是这样。
+
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/scripts/master/shell/sshslowly.sh)"
+```
