@@ -1,0 +1,4 @@
+#常用的检测目标服务器udp端口的工具。
+```
+Example: nc -vuz alv.pub 1701
+```
