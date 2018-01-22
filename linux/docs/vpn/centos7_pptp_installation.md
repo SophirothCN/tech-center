@@ -5,22 +5,28 @@ yum install ppp iptables pptpd -y
 
 ```
 # 2，configure pptpd
-## 2.1， configure dns
+## 2.1, configure /etc/pptpd.conf
 ```
-#vim /etc/ppp/options.pptpd
+vim /etc/pptpd.conf
+localip 192.168.0.1
+remoteip 192.168.0.234-238,192.168.0.245
+```
+## 2.2, configure dns
+```
+vim /etc/ppp/options.pptpd
 ms-dns 8.8.8.8
 ms-dns 8.8.4.4
 ```
-## 2.2, configure user and password
+## 2.3, configure user and password
 ```sybase
-#vim /etc/ppp/chap-secrets
+vim /etc/ppp/chap-secrets
 #Username  Server  Secret  Hosts
 "user1" "*" "password1" "*"
 "user2" "*" "password2" "*"
 ```
-## 2.3, configure /etc/sysctl.conf
+## 2.4, configure /etc/sysctl.conf
 ```sybase
-#vim /etc/sysctl.conf
+vim /etc/sysctl.conf
 net.ipv4.ip_forward=1
 ```
 ```
