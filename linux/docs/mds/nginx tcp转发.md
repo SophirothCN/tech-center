@@ -1,4 +1,7 @@
 ### 将本地666端口转发到本地105端口
+###### Nginx发布1.9.0版本，新增支持TCP代理和负载均衡的stream模块
+nginx1.9 以下的版本不支持stream模块，使用前请先检查一下您的nginx版本。nginx -v
+
 ```
 stream {
     upstream proxy_card {
