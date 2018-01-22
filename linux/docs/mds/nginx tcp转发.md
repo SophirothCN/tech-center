@@ -52,3 +52,4 @@ stream {
 }
  ```
 ![image](https://github.com/AlvinWanCN/TechnologyCenter/raw/master/images/20180121144933.png)
+[^_^]: “ <image src=https://github.com/AlvinWanCN/TechnologyCenter/raw/master/images/20180121144933.png>”
