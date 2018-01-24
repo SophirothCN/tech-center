@@ -1,0 +1,29 @@
+# l2tp vpn installation
+
+---
+参考文档：https://hub.docker.com/r/hwdsl2/ipsec-vpn-server/ ，该文档有详细解释。本文档只是简单描述配置
+
+本次安装l2tp服务，我们使用的docker，超级简单的方法
+
+需要执行的命令如下：
+```
+sudo modprobe af_key
+
+vim vpn.env
+VPN_IPSEC_PSK=your_ipsec_pre_shared_key
+VPN_USER=your_vpn_username
+VPN_PASSWORD=your_vpn_password
+
+docker run \
+    --name ipsec-vpn-server \
+    --env-file ./vpn.env \
+    --restart=always \
+    -p 500:500/udp \
+    -p 4500:4500/udp \
+    -v /lib/modules:/lib/modules:ro \
+    -d --privileged \
+    hwdsl2/ipsec-vpn-server 
+
+```
+
+然后就可以了，没事了。
