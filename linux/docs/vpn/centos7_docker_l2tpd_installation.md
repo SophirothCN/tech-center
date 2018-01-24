@@ -7,6 +7,11 @@
 
 需要执行的命令如下：
 ```
+如果没有安装 docker 需要先安装docker
+yum install docker-engine*
+systemctl start docker-latest
+systemctl enable docker-latest
+
 sudo modprobe af_key
 
 vim vpn.env
@@ -25,5 +30,6 @@ docker run \
     hwdsl2/ipsec-vpn-server 
 
 ```
+如果服务器有设置防火墙，需要在防火墙上打开udp协议的500端口和4500端口
 
 然后就可以了，没事了。
