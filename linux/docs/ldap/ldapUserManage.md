@@ -1,0 +1,33 @@
+
+
+本篇文档讲述ldap用户的添加和删除，<a href=https://github.com/AlvinWanCN/TechnologyCenter/blob/master/linux/docs/ldap/ldapDeploy.md> 部署ldap的步骤请点击这里 </a>
+
+### 1 添加ldap用户
+这里我们在一个已经搭建好了ldap环境的服务器上添加一个名为diana的用户，密码也是diana
+
+#### Step 1 创建用户并设置密码
+```bash
+useradd -d /home/guests/diana diana #这里因为我们使用的ldap服务在设计上是讲/home/guests/目录作为ldap用户的上级目录，所以diana的目录为 /home/guests/diana
+echo diana|passwd diana --stdin
+```
+
+#### Step 2 Now filter out these Users and Groups and it password from /etc/shadow to different file:
+ ```bash
+getent passwd|tail -1 > /root/users
+getent shadow|tail -1 > /root/shadow
+getent group|tail -1 > /root/groups
+```
+#### Step 3 Now you need to create ldif file for these users using migrationtools:
+
+```bash
+cd /usr/share/migrationtools
+./migrate_passwd.pl /root/users > users.ldif
+./migrate_group.pl /root/groups > groups.ldif
+```
+
+
+#### Step 4 Upload these users and groups ldif file into LDAP Database:
+```bash
+ ldapadd -x -W -D "cn=ops1,dc=alv,dc=pub" -f users.ldif
+ ldapadd -x -W -D "cn=ops1,dc=alv,dc=pub" -f groups.ldif
+ ```
