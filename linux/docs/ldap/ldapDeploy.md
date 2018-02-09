@@ -29,7 +29,7 @@ olcRootPW:	123456 #密码根据自己需要修改,主要密码前面是个tab
 ```
 
 Step 3: Configure Monitoring Database Configuration file: 
-```
+```bash
  vim /etc/openldap/slapd.d/cn\=config/olcDatabase\=\{1\}monitor.ldif
  #修改dn.base=""中的cn、dc项与step2中的相同
 olcAccess: {0}to * by dn.base="gidNumber=0+uidNumber=0,cn=peercred,cn=extern
