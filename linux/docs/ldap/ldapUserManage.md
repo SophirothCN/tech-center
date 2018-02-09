@@ -31,5 +31,5 @@ cd /usr/share/migrationtools
  ldapadd -x -W -D "cn=ops1,dc=alv,dc=pub" -f users.ldif
  ldapadd -x -W -D "cn=ops1,dc=alv,dc=pub" -f groups.ldif 
  ##上面的-W参数是交互式输入密码，如果不想交互式输入密码，可以将-W替换为-w,并在-w后面添加ldap管理员密码。
- ##示例：ldapadd -x -w password -D "cn=ops1,dc=alv,dc=pub" -f groups.ldif 
+ ##示例：ldapadd -x -w your_password -D "cn=ops1,dc=alv,dc=pub" -f groups.ldif 
  ```
