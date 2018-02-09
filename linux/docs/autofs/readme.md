@@ -67,6 +67,5 @@ Last login: Fri Feb  9 05:20:54 EST 2018 on pts/2
 [alvin@ops2 ~]$ pwd
 /sophiroth/alvin
 ```
-
-
+<img src=https://github.com/AlvinWanCN/TechnologyCenter/raw/master/linux/docs/autofs/img/autofs.jpg>
 
