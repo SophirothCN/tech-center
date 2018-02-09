@@ -35,7 +35,7 @@ cd /usr/share/migrationtools
  ##示例：ldapadd -x -w $ldapPassword -D "cn=ops1,dc=alv,dc=pub" -f groups.ldif 
  ```
 
-### 2 删除用户
+### 2 删除用户和组
 
 #### Step1 删除用户
 这里我们删除用户natasha
