@@ -12,7 +12,7 @@
         <th>Hostname</th>
         <th>OS</th>
         <th>Selinux</th
-        <th>Firewalld</th
+        <th>Firewalld</th>
     </thead>
     <tr>
         <td>Server</td>
