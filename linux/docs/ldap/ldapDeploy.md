@@ -82,3 +82,30 @@ ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f ppolicy.ldif
 Step 9: Now use Migration Tools to create LDAP DIT: 
 ```
 cd /usr/share/migrationtools/
+vim migrate_common.ph 
+on the Line Number 61, change "ou=Groups"
+$NAMINGCONTEXT{'group'} = "ou=Groups";
+on the Line Number 71, change your domain name
+$DEFAULT_MAIL_DOMAIN = "yooma.com";
+on the line number 74, change your base name
+$DEFAULT_BASE = "dc=yooma,dc=com";
+on the line number 90, change schema value
+$EXTENDED_SCHEMA = 1;
+```
+Step 10: Generate a base.ldif file for your Domain DIT: 
+```bash
+ ./migrate_base.pl /root/base.ldif
+ ```
+ Step 11: Load "base.ldif" into LDAP Database: 
+ ```bash
+ ldapadd -x -W -D "cn=ops1,dc=alv,dc=pub" -f /root/base.ldif
+  ```
+  
+  Step 12: Now Create some users and Groups and migrate it from local database to LDAP 
+  ```bash
+mkdir /home/guests
+useradd -d /home/guests/ldapuser1 ldapuser1
+useradd -d /home/guests/ldapuser2 ldapuser2
+echo 'password' | passwd --stdin ldapuser1
+echo 'password' | passwd --stdin ldapuser
+```
