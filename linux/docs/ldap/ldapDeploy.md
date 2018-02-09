@@ -49,6 +49,10 @@ http://blog.chinaunix.net/uid-21926461-id-5676013.html
 yum install -y openldap openldap-clients openldap-servers migrationtools
 ```
 
+---
+###  2. Server端配置
+---
+
 #### Step 2: Configure OpenLDAP Server: 
 
 ```bash
@@ -165,7 +169,7 @@ getent group | tail -n 5 > /root/groups
 ```bash
 ldapsearch -x -b "dc=alv,dc=pub" -H ldap://ops1.alv.pub
 ```
-###  1. Server端安装
+###  3. 客户端安装配置调试
 ```
 yum install -y nss-pam*
 authconfig-tui   #chose the secend [ Use LDAP] and next
