@@ -150,9 +150,9 @@ getent group | tail -n 5 > /root/groups
  cd /usr/share/migrationtools
  vim migrate_passwd.pl
  #search /etc/shadow and replace it into /root/shadow on Line Number 188.
-```
 ./migrate_passwd.pl /root/users > users.ldif
 ./migrate_group.pl /root/groups > groups.ldif
+```
 #### Step 15: Upload these users and groups ldif file into LDAP Database: 
 ```bash
  ldapadd -x -W -D "cn=root,dc=yooma,dc=com" -f users.ldif
