@@ -13,13 +13,13 @@ Step 1: Install the following packages:
 
 ---
 
-```
+```bash
 yum install -y openldap openldap-clients openldap-servers migrationtools
 ```
 
 Step 2: Configure OpenLDAP Server: 
 
-```
+```bash
 vim /etc/openldap/slapd.d/cn\=config/olcDatabase\=\{2\}hdb.ldif
 change two lines:   #change  dc=yooma
 olcSuffix: dc=yooma,dc=com               
@@ -35,3 +35,19 @@ Step 3: Configure Monitoring Database Configuration file:
 olcAccess: {0}to * by dn.base="gidNumber=0+uidNumber=0,cn=peercred,cn=extern
 al,cn=auth" read by dn.base="cn=root,dc=yooma,dc=com" read by * none
  ```
+
+Step 4: Prepare the LDAP database:
+```bash
+cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG
+chown -R ldap.ldap /var/lib/ldap
+```
+
+Step 5: Test the configuration:
+```bash
+slaptest -u
+56e7c83d ldif_read_file: checksum error on "/etc/openldap/slapd.d/cn=config/olcDatabase={1}monitor.ldif"
+56e7c83d ldif_read_file: checksum error on "/etc/openldap/slapd.d/cn=config/olcDatabase={2}hdb.ldif"
+config file testing succeeded  #验证成功
+```
+
+
