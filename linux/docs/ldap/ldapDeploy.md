@@ -51,8 +51,8 @@ yum install -y openldap openldap-clients openldap-servers migrationtools
 ```bash
 vim /etc/openldap/slapd.d/cn\=config/olcDatabase\=\{2\}hdb.ldif
 change two lines:   #change  dc=yooma
-olcSuffix: dc=yooma,dc=com               
-olcRootDN: cn=root,dc=yooma,dc=com
+olcSuffix: dc=alv,dc=pub               
+olcRootDN: cn=ops1,dc=alv,dc=pub
 add one line:
 olcRootPW:	123456 #密码根据自己需要修改,主要密码前面是个tab
 ```
@@ -62,7 +62,7 @@ olcRootPW:	123456 #密码根据自己需要修改,主要密码前面是个tab
  vim /etc/openldap/slapd.d/cn\=config/olcDatabase\=\{1\}monitor.ldif
  #修改dn.base=""中的cn、dc项与step2中的相同
 olcAccess: {0}to * by dn.base="gidNumber=0+uidNumber=0,cn=peercred,cn=extern
-al,cn=auth" read by dn.base="cn=root,dc=yooma,dc=com" read by * none
+al,cn=auth" read by dn.base="cn=ops1,dc=alv,dc=pub" read by * none
  ```
 
 #### Step 4: Prepare the LDAP database:
