@@ -11,6 +11,7 @@
         <th>Role</th>
         <th>Hostname</th>
         <th>OS</th>
+        <th>User</th>
         <th>Selinux</th>
         <th>Firewalld</th>
     </thead>
@@ -18,6 +19,7 @@
         <td>Server</td>
         <td>ops1.alv.pub</td>
         <td>centos7.4</td>
+        <td>root</td>
         <td>disabled</td>
         <td>disabled</td>
     </tr>
@@ -25,6 +27,7 @@
         <td>client</td>
         <td>ops2.alv.pub</td>
         <td>centos7.4</td>
+         <td>root</td>
         <td>disabled</td>
         <td>disabled</td>
     </tr>
