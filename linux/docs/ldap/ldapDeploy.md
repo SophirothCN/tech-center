@@ -112,9 +112,9 @@ vim migrate_common.ph
 on the Line Number 61, change "ou=Groups"
 $NAMINGCONTEXT{'group'} = "ou=Groups";
 on the Line Number 71, change your domain name
-$DEFAULT_MAIL_DOMAIN = "yooma.com";
+$DEFAULT_MAIL_DOMAIN = "sophiroth.com";
 on the line number 74, change your base name
-$DEFAULT_BASE = "dc=yooma,dc=com";
+$DEFAULT_BASE = "dc=alv,dc=pub";
 on the line number 90, change schema value
 $EXTENDED_SCHEMA = 1;
 ```
