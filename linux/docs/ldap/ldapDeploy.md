@@ -123,7 +123,7 @@ $EXTENDED_SCHEMA = 1;
 ```
 ####  Step 10: Generate a base.ldif file for your Domain DIT: 
 ```bash
- ./migrate_base.pl /root/base.ldif
+ ./migrate_base.pl > /root/base.ldif
  ```
  Step 11: Load "base.ldif" into LDAP Database: 
  ```bash
