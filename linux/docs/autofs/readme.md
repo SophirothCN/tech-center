@@ -16,7 +16,7 @@
         <th>Firewalld</th>
     </thead>
     <tr>
-        <td>Server</td>
+        <td>NFS Server</td>
         <td>ops1.alv.pub</td>
         <td>centos7.4</td>
         <td>root</td>
@@ -24,7 +24,7 @@
         <td>disabled</td>
     </tr>
     <tr>
-        <td>client</td>
+        <td>autofs</td>
         <td>ops2.alv.pub</td>
         <td>centos7.4</td>
          <td>root</td>
