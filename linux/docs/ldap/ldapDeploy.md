@@ -136,7 +136,7 @@ mkdir /home/guests
 useradd -d /home/guests/ldapuser1 ldapuser1
 useradd -d /home/guests/ldapuser2 ldapuser2
 echo 'password' | passwd --stdin ldapuser1
-echo 'password' | passwd --stdin ldapuser
+echo 'password' | passwd --stdin ldapuser2
 ```
 
 #### Step 13: Now filter out these Users and Groups and it password from /etc/shadow to different file: 
