@@ -101,7 +101,7 @@ Step 10: Generate a base.ldif file for your Domain DIT:
  ldapadd -x -W -D "cn=ops1,dc=alv,dc=pub" -f /root/base.ldif
   ```
   
-  Step 12: Now Create some users and Groups and migrate it from local database to LDAP 
+ ###### Step 12: Now Create some users and Groups and migrate it from local database to LDAP 
   ```bash
 mkdir /home/guests
 useradd -d /home/guests/ldapuser1 ldapuser1
