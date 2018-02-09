@@ -50,7 +50,7 @@ yum install -y openldap openldap-clients openldap-servers migrationtools
 
 ```bash
 vim /etc/openldap/slapd.d/cn\=config/olcDatabase\=\{2\}hdb.ldif
-change two lines:   #change  dc=yooma
+change two lines:   #change  dc=alv
 olcSuffix: dc=alv,dc=pub               
 olcRootDN: cn=ops1,dc=alv,dc=pub
 add one line:
