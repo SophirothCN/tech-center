@@ -50,4 +50,35 @@ slaptest -u
 config file testing succeeded  #验证成功
 ```
 
+Step 6: Start and enable the slapd service at boot: 
+```bash
+systemctl start slapd
+systemctl enable slapd
+```
 
+Step 7: Check the LDAP activity:
+```bash
+netstat -lt | grep ldap
+netstat -tunlp | egrep "389|636"
+```
+
+Step 8: To start the configuration of the LDAP server, add the follwing LDAP schemas:
+```bash
+cd /etc/openldap/schema/
+ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f cosine.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f nis.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f collective.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f corba.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f core.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f duaconf.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f dyngroup.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f inetorgperson.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f java.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f misc.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f openldap.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f pmi.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f ppolicy.ldif
+```
+Step 9: Now use Migration Tools to create LDAP DIT: 
+```
+cd /usr/share/migrationtools/
