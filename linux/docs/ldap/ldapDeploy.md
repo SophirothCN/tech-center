@@ -11,7 +11,7 @@
         <th>Role</th>
         <th>Hostname</th>
         <th>OS</th>
-        <th>Selinux</th
+        <th>Selinux</th>
         <th>Firewalld</th>
     </thead>
     <tr>
