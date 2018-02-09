@@ -155,8 +155,8 @@ getent group | tail -n 5 > /root/groups
 ```
 #### Step 15: Upload these users and groups ldif file into LDAP Database: 
 ```bash
- ldapadd -x -W -D "cn=root,dc=yooma,dc=com" -f users.ldif
- ldapadd -x -W -D "cn=root,dc=yooma,dc=com" -f 
+ ldapadd -x -W -D "cn=ops1,dc=alv,dc=pub" -f users.ldif
+ ldapadd -x -W -D "cn=ops1,dc=alv,dc=pub" -f 
  ```
 #### Step 16: Now search LDAP DIT for all records: 
 ```bash
