@@ -169,4 +169,5 @@ authconfig-tui   #chose the secend [ Use LDAP] and next
 su ldapuser1
 bash-4.2$     #测试成功
 ```
-<img src=https://github.com/AlvinWanCN/TechnologyCenter/raw/master/linux/docs/ldap/img/ldap1.bmp><img src=https://github.com/AlvinWanCN/TechnologyCenter/raw/master/linux/docs/ldap/img/ldap2.jpg>
+<img src=https://github.com/AlvinWanCN/TechnologyCenter/raw/master/linux/docs/ldap/img/ldap1.bmp>
+<img src=https://github.com/AlvinWanCN/TechnologyCenter/raw/master/linux/docs/ldap/img/ldap2.jpg>
