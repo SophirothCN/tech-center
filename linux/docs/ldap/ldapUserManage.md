@@ -3,7 +3,7 @@
 本篇文档讲述ldap用户的添加和删除，<a href=https://github.com/AlvinWanCN/TechnologyCenter/blob/master/linux/docs/ldap/ldapDeploy.md> 部署ldap的步骤请点击这里 </a>
 
 
-### 1 添加ldap用户
+### 1 添加ldap用户和组
 这里我们在一个已经搭建好了ldap环境的服务器上添加一个名为diana的用户，密码也是diana
 
 #### Step 1 创建用户并设置密码
@@ -41,9 +41,14 @@ cd /usr/share/migrationtools
 这里我们删除用户natasha
 ```bash
 ldapPassword=your_password
-ldapdelete -x -D "cn=ops1,dc=alv,dc=pub" -w $_ldapPassword "uid=natasha,ou=People,dc=alv,dc=pub"
+ldapdelete -x -D "cn=ops1,dc=alv,dc=pub" -w $ldapPassword "uid=natasha,ou=People,dc=alv,dc=pub"
 ```
 如果用户信息不对，我们可以通过以下命令来查看相应用户的信息
 ```bash
 ldapsearch -x -b "dc=alv,dc=pub" -H ldap://ops1.alv.pub|grep natasha
+```
+
+#### Step2 删除组
+```bash
+ldapdelete -x -D "cn=ops1,dc=alv,dc=pub" -w $ldapPassword "cn=natasha,ou=Groups,dc=alv,dc=pub"
 ```
