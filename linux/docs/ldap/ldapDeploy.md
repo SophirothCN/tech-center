@@ -179,3 +179,17 @@ bash-4.2$     #测试成功
 <img src=https://github.com/AlvinWanCN/TechnologyCenter/raw/master/linux/docs/ldap/img/ldap3.jpg>
 <img src=https://github.com/AlvinWanCN/TechnologyCenter/raw/master/linux/docs/ldap/img/ldap1.bmp>
 <img src=https://github.com/AlvinWanCN/TechnologyCenter/raw/master/linux/docs/ldap/img/ldap2.jpg>
+
+以上是通过图形化的方式配置，也可以通过命令直接配置
+
+```
+yum install nss-pam-ldapd setuptool -y
+authconfig --enableldap  --enableldapauth --ldapserver=ldap://ops1.alv.pub --disableldaptls  --enablemkhomedir --ldapbasedn="dc=alv,dc=pub" --update
+```
+然后就可以了。
+```bash
+getent shadow ldapuser1
+getent passwd ldapuser1
+id ldapuser1
+
+```
