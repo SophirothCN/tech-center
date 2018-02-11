@@ -1,5 +1,5 @@
 [centos6]
 name=centos6
-baseurl=http://dc.alv.pub/centos7
+baseurl=http://dc.alv.pub/centos6
 gpgcheck=0
 enabled=1
