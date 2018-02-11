@@ -1,0 +1,5 @@
+[centos7]
+name=centos7
+baseurl=http://dc.alv.pub/centos7
+gpgcheck=0
+enabled=1
