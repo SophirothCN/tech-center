@@ -187,3 +187,9 @@ yum install nss-pam-ldapd setuptool -y
 authconfig --enableldap  --enableldapauth --ldapserver=ldap://ops1.alv.pub --disableldaptls  --enablemkhomedir --ldapbasedn="dc=alv,dc=pub" --update
 ```
 然后就可以了。
+```bash
+getent shadow ldapuser1
+getent passwd ldapuser1
+id ldapuser1
+
+```
