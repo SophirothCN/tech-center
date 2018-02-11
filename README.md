@@ -1,7 +1,7 @@
 
 <p align='center'> <a href='https://github.com/alvinwancn' target="_blank"> <img src='https://github.com/AlvinWanCN/life-record/raw/master/images/etlucency.png' alt='Alvin Wan'></a></p>
 
-<p stype=font-weight:bold; align=center > <b>Alvin's technology center</b></p>
+<p stype=font-weight:bold; align=center > <b>Alvin's Technology Center</b></p>
 
 ---
 
