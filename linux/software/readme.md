@@ -111,20 +111,6 @@ EOF
 ```
 平时为了加快访问速度，如果常有新机安装，需要通过yum来安装软件，我们可以搭建一个本地的yum源服务器，然后把上面的baseurl后面的内容换成我们内网自己的服务器地址，那接下来我们安装软件时下载软件的速度就很快了。</br>
 
----
-#### 本地yum源
----
-如果是本地挂载了光盘，比如将iso文件挂载到了/mnt/iso目录下，那么我们如果要使用本地的镜像里的软件作为yum源，则可以如下配置
-```bash
-cat >/etc/yum.repos.d/base.repo<<EOF
-[base]
-name=base
-baseurl=file:///mnt/iso
-gpgcheck=0
-enabled=1
-EOF
-```
-然后就可以使用了。
 
 ---
 #### 使用epel的yum源
@@ -163,6 +149,22 @@ enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
 gpgcheck=1
 ```
+
+---
+#### 本地yum源
+---
+如果是本地挂载了光盘，比如将iso文件挂载到了/mnt/iso目录下，那么我们如果要使用本地的镜像里的软件作为yum源，则可以如下配置
+```bash
+cat >/etc/yum.repos.d/base.repo<<EOF
+[base]
+name=base
+baseurl=file:///mnt/iso
+gpgcheck=0
+enabled=1
+EOF
+```
+然后就可以使用了。
+
 
 #### 网络rpm包安装
 
