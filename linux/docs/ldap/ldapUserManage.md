@@ -8,7 +8,7 @@
 
 #### Step 1 创建用户并设置密码
 ```bash
-useradd -d /home/guests/diana diana #这里因为我们使用的ldap服务在设计上是讲/home/guests/目录作为ldap用户的上级目录，所以diana的目录为 /home/guests/diana
+useradd -d /ldapUserData/diana diana #这里因为我们使用的ldap服务在设计上是讲/home/guests/目录作为ldap用户的上级目录，所以diana的目录为 /home/guests/diana
 echo diana|passwd diana --stdin
 ```
 
@@ -32,7 +32,8 @@ cd /usr/share/migrationtools
  ldapadd -x -W -D "cn=natasha,dc=alv,dc=pub" -f users.ldif
  ldapadd -x -W -D "cn=natasha,dc=alv,dc=pub" -f groups.ldif 
  ##上面的-W参数是交互式输入密码，如果不想交互式输入密码，可以将-W替换为-w,并在-w后面添加ldap管理员密码。
- ##示例：ldapadd -x -w $ldapPassword -D "cn=natasha,dc=alv,dc=pub" -f groups.ldif 
+ ##示例：ldapadd -x -w $ldapPassword -D "cn=natasha,dc=alv,dc=pub" -f users.ldif
+
  ```
 
 ### 2 删除用户和组
