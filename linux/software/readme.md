@@ -61,7 +61,7 @@ gpgcheck=1
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 ```
-我们会发现，配置文件的文件里有一行是mirrorlist,而我们平时自己配置本地yum仓库时，那里写的是baseurl，而不是mirrorlist，mirrorlsit的值是一个http链接，我们看到配置文件里这个链接中包含了一些变量，会根据不同的系统，而变为相应的内容。Alvin研究测试后发现，比如http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras&infra=$infra
+我们会发现，配置文件的文件里有一行是mirrorlist,而我们平时自己配置本地yum仓库时，那里写的是baseurl，而不是mirrorlist，mirrorlsit的值是一个http链接，我们看到配置文件里这个链接中包含了一些变量，会根据不同的系统，而变为相应的内容。Alvin使用的系统是centos7.4.研究测试后发现，比如http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras&infra=$infra
  这个链接，最终这里面的变量取到值后，真实访问的完整链接是：http://mirror.bit.edu.cn/centos/7.4.1708/extras/x86_64/ ，而这个地址里的内容，则如下所示：
 ```text
 http://mirror.bit.edu.cn/centos/7.4.1708/extras/x86_64/
