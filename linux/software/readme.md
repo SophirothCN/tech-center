@@ -91,7 +91,7 @@ gpgcheck=0
 enabled=1
 EOF
 ```
-或者我们要用docker，而基础包里没有docker，所以这里我们使用centos7的extras仓库，还是使用阿里云的，那么我们执行如下命令就好了：
+或者我们要用docker，而基础包里没有docker，所以这里我们使用centos7的extras仓库，这个仓库里有docker-latest包，这里我们还是使用阿里云的，那么我们执行如下命令就好了：
 ```bash
  cat >>/etc/yum.repos.d/centos7-base.repo<<EOF
 [centos7base]
