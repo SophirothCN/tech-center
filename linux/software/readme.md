@@ -3,7 +3,7 @@
       <img src='https://github.com/AlvinWanCN/life-record/raw/master/images/etlucency.png' alt='Alvin Wan' width=250>
   </a>
 </p>
-<p align=center ><b>Common Network Yum Repository</b></p>
+<p align=center ><b>Common Software Management</b></p>
 
 
 
@@ -12,6 +12,7 @@
 3,[手动配置使用网络yum源](#手动配置使用网络yum源) </br>
 4,[本地yum源](#本地yum源) </br>
 5,[使用epel yum源](#使用epel的yum源) </br>
+6,[网络rpm包安装](#网络rpm包安装) </br>
 #### 常见的一些网络yum源地址
 
 ```text
@@ -161,4 +162,17 @@ failovermethod=priority
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
 gpgcheck=1
+```
+
+#### 网络rpm包安装
+
+##### 网络rpm包下载地址
+以下是两个我常用的rpm包下载地址，有些软件我们在仓库里找不到指定的内容或版本，可以去这两个地方去搜索我们需要包，下载指定平台的指定版本。
+```text
+http://rpm.pbone.net
+http://rpmfind.net
+```
+搜索找到相应的rpm包之后，获取到rpm包的网络地址，比如我们是需要获取一个zabbix的mysql的rpm包，然后我们获取到rpm包地址是http://rpm.pbone.net/index.php3/stat/3/srodzaj/2/search/zabbix-server-mysql-1.8.3-2.fc14.1.s390.rpm 那么我们执行如下命令就可以直接安装了
+```bash
+yum install http://rpm.pbone.net/index.php3/stat/3/srodzaj/2/search/zabbix-server-mysql-1.8.3-2.fc14.1.s390.rpm -y
 ```
