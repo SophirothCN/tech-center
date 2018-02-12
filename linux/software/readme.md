@@ -81,7 +81,7 @@ http://mirrors.163.com/centos/7.4.1708/extras/x86_64/
 #### 手动配置使用网络yum源
 ---
 
-比如我们要使用centos7的基础包，这里我们使用阿里云的网络yum源
+比如我们要使用centos7的基础包，这里我们使用阿里云的网络yum源。 在配置里面，[centos7base]里中括号里的内容，是repo id,而下面的name，则是repo name，也就是仓库的名字，就像我们创建账号时一个是用户名一个是显示名。用户名是用来识别身份的，显示名则更多的用来展示、用来看的。
 ```bash
 cat >/etc/yum.repos.d/centos7-base.repo<<EOF
 [centos7base]
@@ -113,3 +113,41 @@ enabled=1
 EOF
 ```
 然后就可以使用了。
+
+---
+#### 使用epel yum源
+---
+我们可以通过安装epel-release 这个rpm包来让我们拥有epel yum源。这个包在base仓库里面不存在，它存在于extras仓库里面。
+```bash
+yum install epel-release -y
+```
+完成安装后，我们可以在/etc/yum.repos.d/目录看到多了两个文件epel.repo和epel-testing.repo,然后执行yum repolist 可以看到epel仓库已加载可用了。这里我们只要用到的是/etc/yum.repos.d/epel.repo这个文件，我们来看一看这里面的内容
+```bash
+[root@openstack ~]# cat /etc/yum.repos.d/epel.repo 
+[epel]
+name=Extra Packages for Enterprise Linux 7 - $basearch
+#baseurl=http://download.fedoraproject.org/pub/epel/7/$basearch
+mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-7&arch=$basearch
+failovermethod=priority
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+
+[epel-debuginfo]
+name=Extra Packages for Enterprise Linux 7 - $basearch - Debug
+#baseurl=http://download.fedoraproject.org/pub/epel/7/$basearch/debug
+mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-debug-7&arch=$basearch
+failovermethod=priority
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+gpgcheck=1
+
+[epel-source]
+name=Extra Packages for Enterprise Linux 7 - $basearch - Source
+#baseurl=http://download.fedoraproject.org/pub/epel/7/SRPMS
+mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-source-7&arch=$basearch
+failovermethod=priority
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+gpgcheck=1
+```
