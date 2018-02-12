@@ -18,7 +18,7 @@ echo "nameserver 47.75.0.56" >> /etc/resolv.conf
 - [x] 3 vpn服务。（个人使用，不对外开放）
 
 - [x] 4 ldap服务。
-```
+```bash
 yum install nss-pam-ldapd setuptool -y
 authconfig --enableldap  --enableldapauth --ldapserver=ldap://natasha.alv.pub --disableldaptls  --enablemkhomedir --ldapbasedn="dc=alv,dc=pub" --update
 mkdir -p /sophiroth/alvin
