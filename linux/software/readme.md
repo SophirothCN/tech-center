@@ -172,7 +172,8 @@ gpgcheck=1
 http://rpm.pbone.net
 http://rpmfind.net
 ```
-搜索找到相应的rpm包之后，获取到rpm包的网络地址，比如我们是需要获取一个zabbix的mysql的rpm包，然后我们获取到rpm包地址是http://rpm.pbone.net/index.php3/stat/3/srodzaj/2/search/zabbix-server-mysql-1.8.3-2.fc14.1.s390.rpm 那么我们执行如下命令就可以直接安装了
+搜索找到相应的rpm包之后，获取到rpm包的网络地址，比如我们是需要获取一个zabbix的mysql的rpm包，然后我们获取到rpm包地址是ftp://ftp.pbone.net/mirror/archive.fedoraproject.org/fedora/linux/releases/14/Everything/i386/os/Packages/zabbix-server-mysql-1.8.3-2.fc14.1.i686.rpm 那么我们执行如下命令就可以直接安装了
 ```bash
-yum install http://rpm.pbone.net/index.php3/stat/3/srodzaj/2/search/zabbix-server-mysql-1.8.3-2.fc14.1.s390.rpm -y
+yum install ftp://ftp.pbone.net/mirror/archive.fedoraproject.org/fedora/linux/releases/14/Everything/i386/os/Packages/zabbix-server-mysql-1.8.3-2.fc14.1.i686.rpm 
 ```
+如果提示缺依赖包，那就根据提示来解决依赖。
