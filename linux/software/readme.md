@@ -76,3 +76,17 @@ http://mirrors.nju.edu.cn/centos/7.4.1708/extras/x86_64/
 http://mirrors.163.com/centos/7.4.1708/extras/x86_64/
 ```
 以此判断，改yum仓库的配置，mirrorlist的配置，实际上是去找上门这个地址列表里的内容。
+
+---
+#### 手动配置使用网络yum源
+---
+
+比如我们要使用centos7的基础包，这里我们使用阿里云的网络yum源
+```bash
+ cat >>/etc/yum.repos.d/centos7-base.repo<<EOF
+ [centos7base]
+name=centos7
+baseurl=http://mirrors.aliyun.com/centos/7/os/x86_64/
+gpgcheck=0
+enabled=1
+EOF
