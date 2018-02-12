@@ -102,4 +102,3 @@ enabled=1
 EOF
 ```
 
-然后我们执行yum install docker-latest来安装docker，这次发行找的到包了，但是会报错，所有些依赖包找不到，
