@@ -83,7 +83,7 @@ http://mirrors.163.com/centos/7.4.1708/extras/x86_64/
 
 比如我们要使用centos7的基础包，这里我们使用阿里云的网络yum源
 ```bash
-cat >>/etc/yum.repos.d/centos7-base.repo<<EOF
+cat >/etc/yum.repos.d/centos7-base.repo<<EOF
 [centos7base]
 name=centos7-base
 baseurl=http://mirrors.aliyun.com/centos/7/os/x86_64/
@@ -93,7 +93,7 @@ EOF
 ```
 或者我们要用docker，而基础包里没有docker，所以这里我们使用centos7的extras仓库，这个仓库里有docker-latest包，这里我们还是使用阿里云的，那么我们执行如下命令就好了：
 ```bash
-cat >>/etc/yum.repos.d/centos7-extras.repo<<EOF
+cat >/etc/yum.repos.d/centos7-extras.repo<<EOF
 [centos7extras]
 name=centos7-extras
 baseurl=http://mirrors.aliyun.com/centos/7/extras/x86_64/
