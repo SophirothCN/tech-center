@@ -1,6 +1,6 @@
 
 
-本篇文档讲述ldap用户的添加和删除，<a href=https://github.com/AlvinWanCN/TechnologyCenter/blob/master/linux/docs/ldap/ldapDeploy.md> 部署ldap的步骤请点击这里 </a>
+本篇文档讲述ldap用户的添加和删除，<a href=ldapDeploy.md> 部署ldap的步骤请点击这里 </a>
 
 
 ### 1 添加ldap用户和组
