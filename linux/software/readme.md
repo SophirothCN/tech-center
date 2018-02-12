@@ -83,7 +83,7 @@ http://mirrors.163.com/centos/7.4.1708/extras/x86_64/
 
 比如我们要使用centos7的基础包，这里我们使用阿里云的网络yum源
 ```bash
- cat >>/etc/yum.repos.d/centos7-base.repo<<EOF
+cat >>/etc/yum.repos.d/centos7-base.repo<<EOF
 [centos7base]
 name=centos7-base
 baseurl=http://mirrors.aliyun.com/centos/7/os/x86_64/
