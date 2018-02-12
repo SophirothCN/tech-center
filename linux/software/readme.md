@@ -7,11 +7,11 @@
 
 
 
-[常见的一些网络yum源地址](#常见的一些网络yum源地址)
-[默认网络yum源](#默认网络yum源)
-[手动配置使用网络yum源](#手动配置使用网络yum源)
-[默认网络yum源](#默认网络yum源)
-[使用epel yum源](#使用epel yum源)
+[常见的一些网络yum源地址](#常见的一些网络yum源地址) </br>
+[默认网络yum源](#默认网络yum源) </br>
+[手动配置使用网络yum源](#手动配置使用网络yum源) </br>
+[默认网络yum源](#默认网络yum源) </br>
+[使用epel yum源](#使用epel的yum源) </br>
 #### 常见的一些网络yum源地址
 
 ```text
@@ -122,7 +122,7 @@ EOF
 然后就可以使用了。
 
 ---
-#### 使用epel yum源
+#### 使用epel的yum源
 ---
 我们可以通过安装epel-release 这个rpm包来让我们拥有epel yum源。这个包在base仓库里面不存在，它存在于extras仓库里面。
 ```bash
