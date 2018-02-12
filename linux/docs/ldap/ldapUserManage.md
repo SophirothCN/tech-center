@@ -29,10 +29,10 @@ cd /usr/share/migrationtools
 
 #### Step 4 Upload these users and groups ldif file into LDAP Database:
 ```bash
- ldapadd -x -W -D "cn=ops1,dc=alv,dc=pub" -f users.ldif
- ldapadd -x -W -D "cn=ops1,dc=alv,dc=pub" -f groups.ldif 
+ ldapadd -x -W -D "cn=natasha,dc=alv,dc=pub" -f users.ldif
+ ldapadd -x -W -D "cn=natasha,dc=alv,dc=pub" -f groups.ldif 
  ##上面的-W参数是交互式输入密码，如果不想交互式输入密码，可以将-W替换为-w,并在-w后面添加ldap管理员密码。
- ##示例：ldapadd -x -w $ldapPassword -D "cn=ops1,dc=alv,dc=pub" -f groups.ldif 
+ ##示例：ldapadd -x -w $ldapPassword -D "cn=natasha,dc=alv,dc=pub" -f groups.ldif 
  ```
 
 ### 2 删除用户和组
@@ -41,14 +41,14 @@ cd /usr/share/migrationtools
 这里我们删除用户natasha
 ```bash
 ldapPassword=your_password
-ldapdelete -x -D "cn=ops1,dc=alv,dc=pub" -w $ldapPassword "uid=natasha,ou=People,dc=alv,dc=pub"
+ldapdelete -x -D "cn=natasha,dc=alv,dc=pub" -w $ldapPassword "uid=natasha,ou=People,dc=alv,dc=pub"
 ```
 如果用户信息不对，我们可以通过以下命令来查看相应用户的信息
 ```bash
-ldapsearch -x -b "dc=alv,dc=pub" -H ldap://ops1.alv.pub|grep natasha
+ldapsearch -x -b "dc=alv,dc=pub" -H ldap://natasha.alv.pub|grep natasha
 ```
 
 #### Step2 删除组
 ```bash
-ldapdelete -x -D "cn=ops1,dc=alv,dc=pub" -w $ldapPassword "cn=natasha,ou=Groups,dc=alv,dc=pub"
+ldapdelete -x -D "cn=natasha,dc=alv,dc=pub" -w $ldapPassword "cn=natasha,ou=Groups,dc=alv,dc=pub"
 ```

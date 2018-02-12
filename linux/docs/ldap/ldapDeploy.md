@@ -20,7 +20,7 @@ http://blog.chinaunix.net/uid-21926461-id-5676013.html
     </thead>
     <tr>
         <td>Server</td>
-        <td>ops1.alv.pub</td>
+        <td>natasha.alv.pub</td>
         <td>centos7.4</td>
         <td>root</td>
         <td>disabled</td>
@@ -59,7 +59,7 @@ yum install -y openldap openldap-clients openldap-servers migrationtools
 vim /etc/openldap/slapd.d/cn\=config/olcDatabase\=\{2\}hdb.ldif
 change two lines:   #change  dc=alv
 olcSuffix: dc=alv,dc=pub               
-olcRootDN: cn=ops1,dc=alv,dc=pub
+olcRootDN: cn=natasha,dc=alv,dc=pub
 add one line:
 olcRootPW:	123456 #密码根据自己需要修改,主要密码前面是个tab
 ```
@@ -69,7 +69,7 @@ olcRootPW:	123456 #密码根据自己需要修改,主要密码前面是个tab
  vim /etc/openldap/slapd.d/cn\=config/olcDatabase\=\{1\}monitor.ldif
  #修改dn.base=""中的cn、dc项与step2中的相同
 olcAccess: {0}to * by dn.base="gidNumber=0+uidNumber=0,cn=peercred,cn=extern
-al,cn=auth" read by dn.base="cn=ops1,dc=alv,dc=pub" read by * none
+al,cn=auth" read by dn.base="cn=natasha,dc=alv,dc=pub" read by * none
  ```
 
 #### Step 4: Prepare the LDAP database:
@@ -134,7 +134,7 @@ $EXTENDED_SCHEMA = 1;
  ```
  Step 11: Load "base.ldif" into LDAP Database: 
  ```bash
- ldapadd -x -W -D "cn=ops1,dc=alv,dc=pub" -f /root/base.ldif
+ ldapadd -x -W -D "cn=natasha,dc=alv,dc=pub" -f /root/base.ldif
   ```
   
 #### Step 12: Now Create some users and Groups and migrate it from local database to LDAP 
@@ -162,12 +162,12 @@ getent group | tail -n 5 > /root/groups
 ```
 #### Step 15: Upload these users and groups ldif file into LDAP Database: 
 ```bash
- ldapadd -x -W -D "cn=ops1,dc=alv,dc=pub" -f users.ldif
- ldapadd -x -W -D "cn=ops1,dc=alv,dc=pub" -f groups.ldif
+ ldapadd -x -W -D "cn=natasha,dc=alv,dc=pub" -f users.ldif
+ ldapadd -x -W -D "cn=natasha,dc=alv,dc=pub" -f groups.ldif
  ```
 #### Step 16: Now search LDAP DIT for all records: 
 ```bash
-ldapsearch -x -b "dc=alv,dc=pub" -H ldap://ops1.alv.pub
+ldapsearch -x -b "dc=alv,dc=pub" -H ldap://natasha.alv.pub
 ```
 ###  3. 客户端安装配置调试
 ```
@@ -184,7 +184,7 @@ bash-4.2$     #测试成功
 
 ```
 yum install nss-pam-ldapd setuptool -y
-authconfig --enableldap  --enableldapauth --ldapserver=ldap://ops1.alv.pub --disableldaptls  --enablemkhomedir --ldapbasedn="dc=alv,dc=pub" --update
+authconfig --enableldap  --enableldapauth --ldapserver=ldap://natasha.alv.pub --disableldaptls  --enablemkhomedir --ldapbasedn="dc=alv,dc=pub" --update
 ```
 然后就可以了。
 ```bash
