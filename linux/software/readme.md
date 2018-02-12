@@ -121,7 +121,7 @@ EOF
 ```bash
 yum install epel-release -y
 ```
-完成安装后，我们可以在/etc/yum.repos.d/目录看到多了两个文件epel.repo和epel-testing.repo,然后执行yum repolist 可以看到epel仓库已加载可用了。这里我们只要用到的是/etc/yum.repos.d/epel.repo这个文件，我们来看一看这里面的内容
+完成安装后，我们可以在/etc/yum.repos.d/目录看到多了两个文件epel.repo和epel-testing.repo,然后执行yum repolist 可以看到epel仓库已加载可用了。这里我们只要用到的是/etc/yum.repos.d/epel.repo这个文件，我们来看一看这里面的内容,这里主要为我们提供包的，也是epel这个仓库。
 ```bash
 [root@openstack ~]# cat /etc/yum.repos.d/epel.repo 
 [epel]
