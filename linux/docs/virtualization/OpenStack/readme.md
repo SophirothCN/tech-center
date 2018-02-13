@@ -129,8 +129,8 @@ systemctl start mariadb.service
 mysql_secure_installation   #设置密 码及初始化 密码 123456，一路 y 回车
 mysql -p123456
 CREATE DATABASE keystone;
-GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' IDENTIFIED BY 'k eystone';
-GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'keyston e';
+GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' IDENTIFIED BY 'keystone';
+GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'keystone';
 CREATE DATABASE glance;
 GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'localhost' IDENTIFIED BY 'glance';
 GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' IDENTIFIED BY 'glance';
@@ -138,7 +138,7 @@ CREATE DATABASE nova;
 GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'localhost' IDENTIFIED BY 'nova';
 GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY 'nova';
 CREATE DATABASE neutron;
-GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'localhost' IDENTIFIED BY 'neu tron';
+GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'localhost' IDENTIFIED BY 'neutron';
 GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY 'neutron';
 CREATE DATABASE cinder;
 GRANT ALL PRIVILEGES ON cinder.* TO 'cinder'@'localhost' IDENTIFIED BY 'cinder';
@@ -153,3 +153,124 @@ rabbitmqctl set_permissions openstack ".*" ".*" ".*"
 rabbitmq-plugins list
 rabbitmq-plugins enable rabbitmq_management #启动插件
 systemctl restart rabbitmq-server.service
+
+openssl rand -hex 10 #取一个随机数
+d84fe5db185bc6a3b464
+vim /etc/keystone/keystone.conf
+cat /etc/keystone/keystone.conf|grep -v "^#"|grep -v "^$"
+[DEFAULT]
+admin_token = d84fe5db185bc6a3b464                                    #设置 token，和上面产生的随机数值一致 verbose = true
+[assignment]
+[auth]
+[cache]
+[catalog]
+[cors]
+[cors.subdomain]
+[credential]
+[database]
+connection = mysql://keystone:keystone@192.168.38.101/keystone                                          #设置数 据库连接 写到 database 下
+[domain_config]
+[endpoint_filter]
+[endpoint_policy]
+[eventlet_server]
+[eventlet_server_ssl]
+[federation]
+[fernet_tokens]
+[identity]
+[identity_mapping]
+[kvs]
+[ldap]
+[matchmaker_redis]
+[matchmaker_ring]
+[memcache]
+servers = 192.168.38.101:11211
+[oauth1]
+[os_inherit]
+[oslo_messaging_amqp]
+[oslo_messaging_qpid]
+[oslo_messaging_rabbit]
+[oslo_middleware]
+[oslo_policy]
+[paste_deploy]
+[policy]
+[resource]
+[revoke]
+driver = sql
+[role]
+[saml]
+[signing]
+[ssl]
+[token]
+provider = uuid
+driver = memcache
+[tokenless_auth]
+[trust]
+
+su -s /bin/sh -c "keystone-manage db_sync" keystone
+systemctl enable memcached
+systemctl start memcached
+vim /etc/httpd/conf/httpd.conf
+ServerName 192.168.38.101:80
+vim /etc/httpd/conf.d/wsgi-keystone.conf
+cat /etc/httpd/conf.d/wsgi-keystone.conf
+Listen 5000
+Listen 35357
+<VirtualHost *:5000>
+WSGIDaemonProcess keystone-public processes=5 threads=1 user=keystone group=keystone display-name=%{GROUP}
+WSGIProcessGroup keystone-public
+WSGIScriptAlias / /usr/bin/keystone-wsgi-public
+WSGIApplicationGroup %{GLOBAL}
+WSGIPassAuthorization On
+<IfVersion >= 2.4>
+ErrorLogFormat "%{cu}t %M"
+</IfVersion>
+ErrorLog /var/log/httpd/keystone-error.log
+CustomLog /var/log/httpd/keystone-access.log combined
+<Directory /usr/bin>
+<IfVersion >= 2.4>
+Require all granted
+</IfVersion>
+<IfVersion < 2.4>
+Order allow,deny
+Allow from all
+</IfVersion>
+</Directory>
+</VirtualHost>
+<VirtualHost *:35357>
+WSGIDaemonProcess keystone-admin processes=5 threads=1 user=keystone group=keystone display-name=%{GROUP}
+WSGIProcessGroup keystone-admin
+WSGIScriptAlias / /usr/bin/keystone-wsgi-admin
+WSGIApplicationGroup %{GLOBAL}
+WSGIPassAuthorization On
+<IfVersion >= 2.4>
+ErrorLogFormat "%{cu}t %M"
+</IfVersion>
+ErrorLog /var/log/httpd/keystone-error.log
+CustomLog /var/log/httpd/keystone-access.log combined
+<Directory /usr/bin>
+<IfVersion >= 2.4>
+Require all granted
+</IfVersion>
+<IfVersion < 2.4>
+Order allow,deny
+Allow from all
+</IfVersion>
+</Directory>
+</VirtualHost>
+
+systemctl enable httpd
+systemctl start httpd
+netstat -lntup|grep http
+export OS_TOKEN=d84fe5db185bc6a3b464
+export OS_URL=http://192.168.38.101:35357/v3
+export OS_IDENTITY_API_VERSION=3
+keystone-manage fernet_setup --keystone-user keystone --keystone-group keystone
+openstack project create --domain default --description "Admin Project" admin 
+openstack user create --domain default --password-prompt admin 
+openstack role create admin
+openstack role add --project admin --user admin admin
+openstack project create --domain default --description "Demo Project" demo 
+openstack user create --domain default --password=demo demo
+openstack role create user
+openstack role add --project demo --user demo user
+openstack project create --domain default --description "Service Project" service
