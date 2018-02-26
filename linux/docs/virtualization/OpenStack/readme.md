@@ -54,7 +54,8 @@ EOF
 yum repolist
 #Base
 yum install epel-release -y
-yum install -y centos-release-openstack-pike
+#yum install -y centos-release-openstack-pike
+yum install -y yum install ftp://ftp.icm.edu.pl/vol/rzm6/linux-centos-vault/7.1.1503/extras/x86_64/Packages/centos-release-openstack-liberty-1-4.el7.noarch.rpm
 yum install -y python-openstackclient
 ##MySQL
 yum install -y mariadb mariadb-server MySQL-python
