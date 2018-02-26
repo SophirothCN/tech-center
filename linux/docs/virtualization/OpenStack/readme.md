@@ -4,6 +4,8 @@
 
 官方文档：官方文档 http://docs.openstack.org </br>
 
+网络文档：https://www.cnblogs.com/elvi/p/7613861.html </br>
+
 ### 部署环境
 <html>
 <table>
