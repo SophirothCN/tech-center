@@ -266,8 +266,8 @@ export OS_URL=http://192.168.38.101:35357/v3
 export OS_IDENTITY_API_VERSION=3
 keystone-manage fernet_setup --keystone-user keystone --keystone-group keystone
 openstack domain create --domain default
-openstack project create --domain default --description "Admin Project" admin 
-openstack user create --domain default --password-prompt admin 
+openstack project create --domain default --description "Admin Project" admin
+openstack user create --domain default --password-prompt admin
 openstack role create admin
 openstack role add --project admin --user admin admin
 openstack project create --domain default --description "Demo Project" demo 
@@ -275,3 +275,18 @@ openstack user create --domain default --password=demo demo
 openstack role create user
 openstack role add --project demo --user demo user
 openstack project create --domain default --description "Service Project" service
+openstack user list
+openstack project list
+openstack service create --name keystone --description "OpenStack Identity" identity
+openstack endpoint create --region RegionOne identity public http://192.168.38.101:5000/v2.0
+openstack endpoint create --region RegionOne identity internal http://192.168.38.101:5000/v2.0
+openstack endpoint create --region RegionOne identity admin http://192.168.38.101:35357/v2.0
+openstack endpoint list #查看
+openstack endpoint delete ID #使用这个命令删除
+unset OS_TOKEN
+unset OS_URL
+openstack --os-auth-url http://192.168.38.101:35357/v3 \
+--os-project-domain-id default --os-user-domain-id default \
+--os-project-name admin --os-username admin --os-auth-type password token issue
+
+```
