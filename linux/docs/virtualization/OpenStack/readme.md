@@ -265,6 +265,7 @@ export OS_TOKEN=d84fe5db185bc6a3b464
 export OS_URL=http://192.168.38.101:35357/v3
 export OS_IDENTITY_API_VERSION=3
 keystone-manage fernet_setup --keystone-user keystone --keystone-group keystone
+openstack domain create --domain default
 openstack project create --domain default --description "Admin Project" admin 
 openstack user create --domain default --password-prompt admin 
 openstack role create admin
