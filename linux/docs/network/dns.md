@@ -70,7 +70,6 @@ include "/etc/named.rfc1912.zones";
 
 ```bash
 vim /etc/named.rfc1912.zones
-
 zone "shenmin.com" IN {
         type master;
         file "shenmin.com.zone";
@@ -79,14 +78,15 @@ zone "shenmin.com" IN {
 zone "alv.pub" IN {
         type master;
         file "alv.pub.zone";
-        allow-update { 192.168.0.0/16 };
+        allow-update { 192.168.0.0/16; };
 };
 zone "sophiroth.com" IN {
         type master;
         file "sophiroth.com.zone";
-        allow-update { 192.168.0.0/16 };
+        allow-update { 192.168.0.0/16; };
 
 };
+~  
 
 ```
 ```
@@ -122,4 +122,23 @@ natasha A   47.75.0.56
 tuleap     A       192.168.1.203
 test1   A       192.168.1.211
 test2   A       192.168.1.212
+```
+```bash
+vim /var/named/sophiroth.com.zone
+$TTL 1D
+@       IN SOA  @ root.sophiroth.com.zone. (
+                                        0       ; serial
+                                        1D      ; refresh
+                                        1H      ; retry
+                                        1W      ; expire
+                                        3H )    ; minimum
+        NS      sophiroth.com.
+@       A   47.75.0.56
+natasha A   47.75.0.56
+nds     A   192.168.38.3
+```
+- 修改文件权限
+```bash
+chown named:named /var/named/ -R
+
 ```
