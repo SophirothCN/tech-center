@@ -142,8 +142,16 @@ nds     A   192.168.38.3
 chown named:named /var/named/ -R
 
 ```
+- 我们的服务器没有配置ipv6地址，所以这里我们也禁用ipv6
+```bash
+vim /etc/sysconfig/named 
+OPTIONS="-4"
+```
+- 然后启动服务
+```bash
+systemctl start named
 
-
+```
 
 ---
 ###  3. Client端验证
