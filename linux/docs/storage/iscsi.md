@@ -12,6 +12,7 @@
     <tr>
         <td>Server</td>
         <td>iscsi.alv.pub</td>
+        <td>192.168.38.4</td>
         <td>centos7.4</td>
         <td>root</td>
         <td>disabled</td>
@@ -20,6 +21,7 @@
     <tr>
         <td>client</td>
         <td>dhcp.alv.pub</td>
+        <td>192.168.38.1</td>
         <td>centos7.4</td>
          <td>root</td>
         <td>disabled</td>
