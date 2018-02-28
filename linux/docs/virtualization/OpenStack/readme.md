@@ -2,7 +2,11 @@
 <p align='center'> <a href='https://github.com/alvinwancn' target="_blank"> <img src='https://github.com/AlvinWanCN/life-record/raw/master/images/etlucency.png' alt='Alvin Wan' width=200></a></p>
 <p align=center><b><u>Alvin's OpenStack Installation Notes</u></b></p>
 
-官方文档：官方文档 http://docs.openstack.org </br>
+官方文档：http://docs.openstack.org </br>
+
+网络文档：https://www.cnblogs.com/elvi/p/7613861.html </br>
+
+一键部署：https://www.cnblogs.com/elvi/p/7811528.html </br>
 
 ### 部署环境
 <html>
@@ -54,7 +58,8 @@ EOF
 yum repolist
 #Base
 yum install epel-release -y
-yum install -y centos-release-openstack-pike
+#yum install -y centos-release-openstack-pike
+yum install -y yum install ftp://ftp.icm.edu.pl/vol/rzm6/linux-centos-vault/7.1.1503/extras/x86_64/Packages/centos-release-openstack-liberty-1-4.el7.noarch.rpm
 yum install -y python-openstackclient
 ##MySQL
 yum install -y mariadb mariadb-server MySQL-python
@@ -265,8 +270,9 @@ export OS_TOKEN=d84fe5db185bc6a3b464
 export OS_URL=http://192.168.38.101:35357/v3
 export OS_IDENTITY_API_VERSION=3
 keystone-manage fernet_setup --keystone-user keystone --keystone-group keystone
-openstack project create --domain default --description "Admin Project" admin 
-openstack user create --domain default --password-prompt admin 
+openstack domain create  default
+openstack project create --domain default --description "Admin Project" admin
+openstack user create --domain default --password-prompt admin
 openstack role create admin
 openstack role add --project admin --user admin admin
 openstack project create --domain default --description "Demo Project" demo 
@@ -274,3 +280,18 @@ openstack user create --domain default --password=demo demo
 openstack role create user
 openstack role add --project demo --user demo user
 openstack project create --domain default --description "Service Project" service
+openstack user list
+openstack project list
+openstack service create --name keystone --description "OpenStack Identity" identity
+openstack endpoint create --region RegionOne identity public http://192.168.38.101:5000/v2.0
+openstack endpoint create --region RegionOne identity internal http://192.168.38.101:5000/v2.0
+openstack endpoint create --region RegionOne identity admin http://192.168.38.101:35357/v2.0
+openstack endpoint list #查看
+openstack endpoint delete ID #使用这个命令删除
+unset OS_TOKEN
+unset OS_URL
+openstack --os-auth-url http://192.168.38.101:35357/v3 \
+--os-project-domain-id default --os-user-domain-id default \
+--os-project-name admin --os-username admin --os-auth-type password token issue
+
+```
