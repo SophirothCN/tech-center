@@ -4,6 +4,7 @@
     <thead>
         <th>Role</th>
         <th>Hostname</th>
+        <th>IPADDRESS</th>
         <th>OS</th>
         <th>User</th>
         <th>Selinux</th>
