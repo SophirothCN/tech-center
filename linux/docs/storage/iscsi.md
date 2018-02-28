@@ -139,7 +139,6 @@ set auth password=password配置的password。
 
 - 查找ISCSI设备</br>
 [root@dhcp ~]# iscsiadm -m discovery -t sendtargets -p iscsi.alv.pub
-192.168.38.4:3260,1 iqn.2018-02.pub.alv:remotedisk1
 
 - 连接ISCSI设备
 iscsiadm -m node --login
