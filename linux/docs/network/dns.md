@@ -142,3 +142,27 @@ nds     A   192.168.38.3
 chown named:named /var/named/ -R
 
 ```
+
+
+
+---
+###  3. Client端验证
+---
+- 客户端指定dns服务器地址和域
+```
+vim /etc/resolv.conf
+search alv.pub shenmin.com sophiroth.com
+nameserver 192.168.38.3
+
+```
+- 在添加了以上配置后，可以使用dns服务了，这里我们特地安装一个dns客户端工具来查看更详细的信息。
+```bash
+yum install bind-utils -y
+```
+- 测试
+
+```bash
+nslookup test1
+nslookup sophiroth.com
+nslookup c1.alv.pub
+```
