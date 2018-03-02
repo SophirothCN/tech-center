@@ -34,6 +34,8 @@ su - alvin #密码是sophiroth,默认情况该账号拥有sudo权限
 - dhcp服务</br>
 <a href=https://github.com/AlvinWanCN/TechnologyCenter/blob/master/linux/docs/network/dhcp/dhcpd.conf>dhcp服务配置地址</a>
 
+- pxe default文件</br>
+<a href=https://github.com/AlvinWanCN/TechnologyCenter/blob/master/linux/docs/system/pxe/default>default文件的配置</a>
 
 - ks文件</br>
 <a href=https://github.com/AlvinWanCN/TechnologyCenter/blob/master/linux/docs/system/pxe/ks.cfg>ks文件配置地址</a>
