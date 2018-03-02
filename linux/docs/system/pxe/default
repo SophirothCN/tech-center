@@ -70,11 +70,6 @@ label Sophiroth Centos 7.4 NAT
   kernel vmlinuz
   append ks=https://raw.githubusercontent.com/AlvinWanCN/TechnologyCenter/master/linux/docs/system/pxe/ks.cfg initrd=initrd.img
   
-LABEL Try Ubuntu 14.04 Server
-MENU LABEL Try Ubuntu 14.04 Server
-kernel Ubuntu/vmlinuz
-append ks=https://raw.githubusercontent.com/AlvinWanCN/TechnologyCenter/master/linux/docs/system/pxe/ubuntu14.cfg initrd=Ubuntu/initrd.lz quiet splash
-ENDTEXT
 
 label linux
   menu label ^Install CentOS 7
