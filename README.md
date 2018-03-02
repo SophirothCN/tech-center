@@ -27,3 +27,17 @@ chown alvin:sophiroth /sophiroth/alvin -R
 id alvin
 su - alvin #密码是sophiroth,默认情况该账号拥有sudo权限
 ```
+
+
+### PXE系统
+
+- dhcp服务
+<a href=https://github.com/AlvinWanCN/TechnologyCenter/blob/master/linux/docs/network/dhcp/dhcpd.conf>dhcp服务配置地址</a>
+
+
+- ks文件
+<a href=https://github.com/AlvinWanCN/TechnologyCenter/blob/master/linux/docs/system/pxe/ks.cfg>ks文件配置地址</a>
+
+
+- 主机名与ip对应脚本
+<a href=https://github.com/AlvinWanCN/TechnologyCenter/blob/master/linux/docs/system/pxe/ks.cfg>主机名与ip地址脚本地址</a>
