@@ -27,7 +27,7 @@ python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/scripts/mas
 
 - Scripts
 ```bash
-# vim /root/bin/updateDhcpdfile.py
+# vim /root/bin/updateDhcpdfile.py #re pull dhcp configuration and restart dhcp service.
 #!/usr/bin/python
 #conding:utf-8
 import os
