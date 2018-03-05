@@ -1,7 +1,9 @@
 ## Server 
 Hostname:iscsi.alv.pub
 
-
+ens32 IP: 192.168.11.4
+ens33 IP: 192.168.127.4
+ens34 IP: 192.168.38.4
 ## Function
 
 iscsi disk service
