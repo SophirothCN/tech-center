@@ -68,3 +68,4 @@ host t8.nat {
 # systemctl restart dhcpd
 # systemctl enable dhcpd
 ```
+
