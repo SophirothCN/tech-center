@@ -38,6 +38,7 @@ db2.alv.pub
 ```
 
 - step 4, use ansible.
+
 we test ping mudule
 ```bash
 ansible db1.alv.pub -m ping
