@@ -68,7 +68,7 @@ label Sophiroth Centos 7.4 NAT
   menu lable ^Sophiroth Centos 7.4 NAT  auto installation
   menu default
   kernel vmlinuz
-  append ks=https://raw.githubusercontent.com/AlvinWanCN/TechnologyCenter/master/linux/docs/system/pxe/ks.cfg initrd=initrd.img
+  append ks=https://github.com/AlvinWanCN/TechnologyCenter/raw/master/sophiroth_cluster/pxe_system/ks.cfg initrd=initrd.img
 
 
 label linux
