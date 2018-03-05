@@ -62,7 +62,7 @@ label Sophiroth Centos 7.4 VMnet1
   menu lable ^Sophiroth Centos 7.4 VMnet1 auto installation
   menu default
   kernel vmlinuz
-  append ks=http://192.168.38.111/ks/ks.cfg initrd=initrd.img
+  append ks=http://dc.alv.pub/ks/ks.cfg initrd=initrd.img
 
 label Sophiroth Centos 7.4 NAT
   menu lable ^Sophiroth Centos 7.4 NAT  auto installation
