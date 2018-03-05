@@ -14,8 +14,8 @@ cp /usr/share/doc/dhcp-4.2.5/dhcpd.conf.example /etc/dhcp/dhcpd.conf
 系统内存要在2G以上，否则安装系统时容易报错。
 
 
-## update file default in sophiroth environment., execute the following command at dc.alv.pub
-
+## update default 
+after file default has been modify,update file default in sophiroth environment, execute the following command at dc.alv.pub
 ```bash
 # curl -fsSL https://github.com/AlvinWanCN/TechnologyCenter/raw/master/sophiroth_cluster/pxe_system/default > /var/lib/tftpboot/pxelinux.cfg/default
 ```
