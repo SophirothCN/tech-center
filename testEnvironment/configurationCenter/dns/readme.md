@@ -1,4 +1,4 @@
-##Server
+## Server
 natasha.alv.pub
 
 ## Configuration file full address
