@@ -20,5 +20,16 @@ Default Gateway:192.168.127.2
 
 ### dc.alv.pub software installation
 ```bash
-# yum install docker-latest
+# yum install nginx
 ```
+
+### dc.alv.pub nginx configuration and startup
+
+```bash
+# curl -fsSL aaa > /etc/nginx/conf.d/pxe.conf
+# systemctl start nginx
+# systemctl enable nginx
+```
+
+
+### 
