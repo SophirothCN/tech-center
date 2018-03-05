@@ -1,8 +1,8 @@
 #!/usr/bin/python
 #coding:utf-8
-import socket,os,re
+import os,re
 #前面是主机名，后面是ip的最后一位地址
-def makeAlvHost(hostname,ip):
+def makeAlvHost(hostname,ip):  #定义字典模板
     return {'ip': ip, 'hostname': hostname+'.alv.pub'}
 hostDict={} #Define dict for hosts
 hostDict['zabbix']=makeAlvHost('zabbix','51') #Define host
@@ -17,9 +17,10 @@ lastIPNumber=re.findall(r'\w\s(.*)\/',ipstr)[0].split('.')[-1]  #截取ip最后�
 defaultName='os'+str(lastIPNumber)+'.alv.pub' #定义默认主机名
 os.system('hostname %s' % defaultName) #设置默认主机名
 os.system('echo %s > /etc/hostname' % defaultName) #设置默认主机名
+
 for hostname in hostDict:
-    if hostDict[hostname]['ip'] == str(lastIPNumber):
-        hostname=(hostDict[hostname]['hostname'])
-        os.system('hostname %s'%hostname)
-        os.system('echo %s > /etc/hostname' % hostname)
-        break
+    if hostDict[hostname]['ip'] == str(lastIPNumber): #如果服务器的ip最后一段匹配上上面的ip
+        hostname=(hostDict[hostname]['hostname']) #获取主机名。
+        os.system('hostname %s'%hostname) #设置临时主机名
+        os.system('echo %s > /etc/hostname' % hostname) #写入到文件，永久主机名。
+        break #成功匹配后退出for循环，节省性能不做无用功。
