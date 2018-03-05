@@ -4,9 +4,6 @@
 Ansible Server, use for manage alv.pub cluster servers.
 
 ### Ansible Service Installation
-ansible service installation manual, <a href=url>click here</a> </br>
-ansible service auto installtion script,<a href=url>click here<a> </br>
-on key installation command:
 ```bash
-#python -c "$(curl -fsSL $url)" 
+# yum install ansible -y
 ```
