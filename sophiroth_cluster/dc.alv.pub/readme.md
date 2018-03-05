@@ -26,7 +26,7 @@ Default Gateway:192.168.127.2
 ### dc.alv.pub nginx configuration and startup
 
 ```bash
-# curl -fsSL aaa > /etc/nginx/conf.d/pxe.conf
+# curl -fsSL https://github.com/AlvinWanCN/TechnologyCenter/raw/master/sophiroth_cluster/dc.alv.pub/nginx/pxe.conf > /etc/nginx/conf.d/pxe.conf
 # systemctl start nginx
 # systemctl enable nginx
 ```
