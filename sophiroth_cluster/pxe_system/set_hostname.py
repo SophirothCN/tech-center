@@ -19,5 +19,7 @@ os.system('hostname %s' % defaultName) #设置默认主机名
 os.system('echo %s > /etc/hostname' % defaultName) #设置默认主机名
 for hostname in hostDict:
     if hostDict[hostname]['ip'] == str(lastIPNumber):
-        print(hostDict[hostname]['hostname'])
+        hostname=(hostDict[hostname]['hostname'])
+        os.system('hostname %s'%hostname)
+        os.system('echo %s > /etc/hostname' % hostname)
         break
