@@ -12,7 +12,7 @@ Default Gateway:192.168.127.2
 ```
 
 
-- System post execution
+- System Preinstallation
 ```bash
 bash -c "$(curl -fsSL https://github.com/AlvinWanCN/scripts/raw/master/common_tools/disableSeAndFir.sh)" #自定义脚本的方式关闭防火墙
 python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/scripts/master/common_tools/pullLocalYum.py)" #添加本地yum仓库
