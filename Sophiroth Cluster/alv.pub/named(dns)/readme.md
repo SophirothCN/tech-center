@@ -1,6 +1,7 @@
 ## Server
 natasha.alv.pub
-
+##Function
+dns service.
 ## Configuration file full address
 
 /etc/named.conf </br>
