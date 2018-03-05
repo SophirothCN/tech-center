@@ -3,7 +3,7 @@
 import socket,os,re
 #前面是主机名，后面是ip的最后一位地址
 def makeAlvHost(hostname,ip):
-    return {'ip': ip, 'hostname': hostname+'alv.pub'}
+    return {'ip': ip, 'hostname': hostname+'.alv.pub'}
 hostDict={} #Define dict for hosts
 hostDict['zabbix']=makeAlvHost('zabbix','51') #Define host
 hostDict['db1']=makeAlvHost('db1','52')
