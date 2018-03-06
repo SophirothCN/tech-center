@@ -11,5 +11,5 @@ dns service.
 
 - [x] Provide update dns command at ansible.
 ```bash
-ansible alv.pub -m command -a 'sudo python -c "$(curl -fsSL https://github.com/AlvinWanCN/TechnologyCenter/raw/master/sophiroth_cluster/alv.pub/named(dns)/update.named.alv.pub.py)"'
+ansible alv.pub -m command -a 'sudo python -c "$(curl -fsSL https://github.com/AlvinWanCN/TechnologyCenter/raw/master/sophiroth_cluster/alv.pub/named/update.named.alv.pub.py)"'
 ```
