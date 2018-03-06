@@ -7,3 +7,6 @@ Ansible Server, use for manage alv.pub cluster servers.
 ```bash
 # yum install ansible -y
 ```
+
+### configuration file full path
+/etc/ansible/hosts
