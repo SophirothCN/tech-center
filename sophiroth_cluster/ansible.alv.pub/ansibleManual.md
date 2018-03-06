@@ -34,7 +34,7 @@ example host is db1.alv.pub and db2 </br>
 # vim /etc/ansible/hosts
 [dbs] #group name
 db1.alv.pub  #hostname
-db2.alv.pub
+db2.alv.pub:22 #指定22端口
 ```
 
 - step 4, use ansible.
