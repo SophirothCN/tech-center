@@ -10,6 +10,7 @@ hostDict['db1']=makeAlvHost('db1','52')
 hostDict['db2']=makeAlvHost('db2','53')
 hostDict['dc']=makeAlvHost('dc','54')
 hostDict['ansible']=makeAlvHost('ansible','55')
+hostDict['jenkins']=makeAlvHost('jenkins','56')
 
 
 ipstr=os.popen('ip a s ens32|grep global').read() #获取关于ip信息的字符串
