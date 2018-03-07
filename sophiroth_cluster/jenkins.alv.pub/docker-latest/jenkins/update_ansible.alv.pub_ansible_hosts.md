@@ -36,4 +36,4 @@ alvin@ansible.alv.pub:22
 
 - [x] Command
 
-python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/TechnologyCenter/master/sophiroth_cluster/ansible.alv.pub/scripts/update.ansible.hosts.py)"
+python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/TechnologyCenter/master/sophiroth_cluster/ansible.alv.pub/ansible/scripts/update.ansible.hosts.py)"
