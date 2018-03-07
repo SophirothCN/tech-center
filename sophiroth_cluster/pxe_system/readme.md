@@ -1,6 +1,7 @@
 
 #pxe + Kickstart 无人值守安装系统
 
+sophiroth cluster 中pxe系统的tftp服务部署在dc.alv.pub上。
 
 - 安装软件
 yum -y install tftp-server dhcp syslinux xinetd system-config-kickstart
