@@ -5,6 +5,7 @@ db2.alv.pub
 [i.alv.pub]
 db1
 db2
+db3
 zabbix
 ansible
 dc
