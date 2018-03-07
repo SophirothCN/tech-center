@@ -2,8 +2,9 @@
 
 
 #### Directory Introduction
-Store named service content.
+Store named scripts
 
-cond.d directory use for story named configuration file.
 
-scripts directory use for store named scripts. 
+#### Scripts Introduction
+
+update.named.alv.pub.py use for update alv.pub.zone file and reload named service on alv.pub server.
