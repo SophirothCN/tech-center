@@ -4,7 +4,7 @@ Max # of builds to keep:5
 
 Repository URL: https://github.com/AlvinWanCN/TechnologyCenter.git
 
-Polling ignores commits in certain paths.Included Regions: sophiroth_cluster/pxe_system/default
+Polling ignores commits in certain paths.Included Regions: sophiroth_cluster/pxe_system/conf.d/default
 
 Poll SCM: * * * * *
 

@@ -1,3 +1,5 @@
+<p align='center'> <a href='https://github.com/alvinwancn' target="_blank"> <img src='https://github.com/AlvinWanCN/life-record/raw/master/images/etlucency.png' alt='Alvin Wan' width=200></a></p>
+
 
 - [x] item Name:
  
@@ -25,4 +27,4 @@ alvin@ansible.alv.pub:22
 
 - [x] Command
 
-ssh dhcp 'sudo python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/TechnologyCenter/master/sophiroth_cluster/dhcp.alv.pub/updateDhcpd.py)"'
+sudo python -c "$(curl -fsSL https://github.com/AlvinWanCN/TechnologyCenter/raw/master/sophiroth_cluster/alv.pub/named/scripts/update.named.alv.pub.py)"

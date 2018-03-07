@@ -1,12 +1,39 @@
-item Name: update_ansible.alv.pub_ansible_hosts
+<p align='center'> <a href='https://github.com/alvinwancn' target="_blank"> <img src='https://github.com/AlvinWanCN/life-record/raw/master/images/etlucency.png' alt='Alvin Wan' width=200></a></p>
 
-Max # of builds to keep:5
 
-Repository URL: https://github.com/AlvinWanCN/TechnologyCenter.git
 
-Polling ignores commits in certain paths.Included Regions: sophiroth_cluster/ansible.alv.pub/ansible/conf.d/hosts
 
-Poll SCM: * * * * *
 
-SSH site: alvin@ansible.alv.pub:22
-Command: python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/TechnologyCenter/master/sophiroth_cluster/ansible.alv.pub/scripts/update.ansible.hosts.py)"
+
+- [x] item Name:
+ 
+update_ansible.alv.pub_ansible_hosts
+ 
+- [x] Max # of builds to keep
+
+5
+
+- [x] Repository URL
+
+ 
+https://github.com/AlvinWanCN/TechnologyCenter.git
+ 
+
+- [x]  Polling ignores commits in certain paths.Included Regions
+
+sophiroth_cluster/ansible.alv.pub/ansible/conf.d/hosts
+
+
+- [x] Poll SCM
+
+(* * * * *)
+
+
+- [x] SSH site: 
+
+alvin@ansible.alv.pub:22
+
+
+- [x] Command
+
+python -c "$(curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/TechnologyCenter/master/sophiroth_cluster/ansible.alv.pub/scripts/update.ansible.hosts.py)"
