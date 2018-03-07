@@ -9,4 +9,4 @@ Polling ignores commits in certain paths.Included Regions: sophiroth_cluster/pxe
 Poll SCM: * * * * *
 
 SSH site: alvin@ansible.alv.pub:22
-Command: ssh dc 'sudo curl -fsSL https://github.com/AlvinWanCN/TechnologyCenter/raw/master/sophiroth_cluster/pxe_system/default > /var/lib/tftpboot/pxelinux.cfg/default'
+Command: ssh dc 'sudo curl -fsSL https://github.com/AlvinWanCN/TechnologyCenter/raw/master/sophiroth_cluster/pxe_system/conf.d/default > /var/lib/tftpboot/pxelinux.cfg/default'
