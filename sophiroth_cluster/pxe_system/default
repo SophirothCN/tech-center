@@ -1,6 +1,6 @@
 default vesamenu.c32
 timeout 30
-
+## a test
 display boot.msg
 
 # Clear the screen when exiting the menu, instead of leaving the menu displayed.
