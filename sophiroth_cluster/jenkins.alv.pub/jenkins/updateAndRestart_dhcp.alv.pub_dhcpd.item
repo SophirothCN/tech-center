@@ -1,0 +1,9 @@
+item Name:updateAndRestart_dhcp.alv.pub_dhcpd
+
+Max # of builds to keep:5
+
+Repository URL:https://github.com/AlvinWanCN/TechnologyCenter.git
+
+Polling ignores commits in certain paths.Included Regions: sophiroth_cluster/dhcp.alv.pub/dhcpd.conf
+
+Poll SCM: * * * * *

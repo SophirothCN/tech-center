@@ -47,7 +47,7 @@ If your server have firewall setting, you should open udp port 500 and 4500 at f
 
 # mkdir -p /jenkins
 # chmod 777 /jenkins
-# docker run -d -it --name jenkins -p 8001:8080 -p 50000:50000 -v /jenkins/:/var/jenkins_home -v /etc/localtime:/etc/localtime jenkins
+# docker run -d -it --name jenkins -p 8001:8080 -p 50000:50000 -v /jenkins/:/var/jenkins_home -v /etc/localtime:/etc/localtime --restart on-failure jenkins
 ```
 administrator password:15037ecf04a54683813acb68a409e551 </br>
 

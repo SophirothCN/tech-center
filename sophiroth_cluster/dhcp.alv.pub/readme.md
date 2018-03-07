@@ -18,7 +18,7 @@ Default Gateway:192.168.127.2
 
 - [x] Provide update dhcp command at ansible.
 ```bash
-ansible dhcp -m command -a "sudo /root/bin/updateDhcpdfile.py"
+ansible dhcp -m command -a 'sudo python -c "$(curl -fsSL https://github.com/AlvinWanCN/TechnologyCenter/raw/master/sophiroth_cluster/dhcp.alv.pub/updateDhcpd.py)"'
 ```
 
 - System Preinstallation
