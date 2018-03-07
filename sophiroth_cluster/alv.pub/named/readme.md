@@ -2,8 +2,6 @@
 
 
 ## Directory Introduction
-Store named service content.
-
-cond.d directory use for story named configuration file.
-
-scripts directory use for store named scripts. 
+Store named service content. </br>
+conf.d directory use for store named configuration file.  </br>
+scripts directory use for store named scripts.   </br>
