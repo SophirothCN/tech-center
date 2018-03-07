@@ -1,7 +1,7 @@
 [dbs] #group name
-db1.alv.pub  #hostname
-db2.alv.pub
-db3.alv.pub
+db1  #hostname
+db2
+db3
 
 
 [i.alv.pub]
