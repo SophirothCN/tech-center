@@ -3,10 +3,3 @@
 ### Server Description
 Ansible Server, use for manage alv.pub cluster servers.
 
-### Ansible Service Installation
-```bash
-# yum install ansible -y
-```
-
-### configuration file full path
-/etc/ansible/hosts
