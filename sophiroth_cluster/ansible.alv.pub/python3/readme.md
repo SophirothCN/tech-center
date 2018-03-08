@@ -17,10 +17,10 @@ python3 software information on ansible.alv.pub
 ```bash
 # wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0b2.tar.xz
 # cd Python-3.7.0b2/
-# ./configure --prefix=/opt/python3
+# ./configure --prefix=/usr/local/python3
 # make
 # make install
-# /opt/python3/bin/python3 --version
+# /usr/local/python3/bin/python3 --version
 Python 3.7.0b2
 ```
-success install python3. work directory is /opt/python3
+success install python3.
