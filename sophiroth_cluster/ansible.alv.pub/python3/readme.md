@@ -23,4 +23,4 @@ python3 software information on ansible.alv.pub
 # /opt/python3/bin/python3 --version
 Python 3.7.0b2
 ```
-success install python3.
+success install python3. work directory is /opt/python3
