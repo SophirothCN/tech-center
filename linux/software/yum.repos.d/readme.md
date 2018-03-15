@@ -12,7 +12,7 @@
 
 ```bash
 # curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/TechnologyCenter/master/linux/software/yum.repos.d/Centos7-extras.repo > /etc//yum.repos.d/Centos7-extras.repo
-# yum install epel-release
+# yum install epel-release -y
 ```
 
 ## add zabbix 3.4 yum reposiroty
