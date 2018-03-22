@@ -1,5 +1,11 @@
 <p align='center'> <a href='https://github.com/alvinwancn' target="_blank"> <img src='https://github.com/AlvinWanCN/life-record/raw/master/images/etlucency.png' alt='Alvin Wan' width=200></a></p>
 
+
+## Resource
+url: http://blog.51cto.com/alsww/826926
+
+
+
 ### example iptables 
 ```bash
 
@@ -73,3 +79,39 @@ num  target     prot opt source               destination
 
 添加新的纪录,使用--reject-with icmp-net-unreachable
 
+```bash
+# iptables -A INPUT -p icmp -s 0.0.0.0/0 -j REJECT  --reject-with icmp-net-unreachable
+
+```
+
+那接下来，我们在访问该服务器的时候就是Unreachable了。
+
+```
+[root@dc ~]# ping dhcp.alv.pub -c 2
+PING dhcp.alv.pub (192.168.127.1) 56(84) bytes of data.
+From 192.168.127.1 (192.168.127.1) icmp_seq=1 Destination Net Unreachable
+From 192.168.127.1 (192.168.127.1) icmp_seq=2 Destination Net Unreachable
+```
+
+- [x] drop
+
+
+或者其实我们还可以直接掉掉包，不做响应。
+
+还是先删除之前的规则
+```
+# iptables -D INPUT 1
+# iptables -A INPUT -p icmp -s 0.0.0.0/0 -j drop
+
+```
+
+那么这个时候客户端来ping这个服务器的时候就不会收到之前那种不可达之类的提示了。下面我们是加了-c 2,表示只ping两次，如果没加那个，会一直那样等很久,得不到相应，这样的方式在防攻击的时候能起到一定的作用。
+
+```bash
+[root@dc ~]# ping dhcp.alv.pub -c 2
+PING dhcp.alv.pub (192.168.127.1) 56(84) bytes of data.
+
+--- dhcp.alv.pub ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1000ms
+
+```
