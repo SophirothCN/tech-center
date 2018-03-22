@@ -236,3 +236,8 @@ wget “ftp://host/test/*”
 
 wget -t0 -c -nH -x -np -b -m -P /home/sunny/NOD32view/ http://downloads1.kaspersky-labs.com/bases/ -o wget.log
 ```
+
+
+ 执行从http 上获取内容。
+
+wget -q -O - https://raw.githubusercontent.com/AlvinWanCN/scripts/master/shell/k8s/syncFlannelToDocker.sh|bash
