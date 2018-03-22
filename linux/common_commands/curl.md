@@ -31,10 +31,10 @@ curl -u alvin:wankaihao k8s.shenmin.com
 ```
 
 
-### 查看自己的公网IP
+### 通过curl访问网站查看自己的公网IP
 
 ```
-curl ipinfo.io
+curl http://ipinfo.io/ip
 ```
 
 
