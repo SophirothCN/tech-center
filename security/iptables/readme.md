@@ -72,3 +72,4 @@ num  target     prot opt source               destination
 ```
 
 添加新的纪录,使用--reject-with icmp-net-unreachable
+
