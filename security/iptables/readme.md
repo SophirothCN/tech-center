@@ -5,6 +5,22 @@
 url: http://blog.51cto.com/alsww/826926
 
 
+### iptables 优先级顺序
+
+
+iptables 多条规则有冲突的时候，排在上面的规则优先。
+
+比如我们已经设置了 iptables -A INPUT -p udp --dport 53 -j REJECT
+
+那么如果再执行iptables -A INPUT -p udp --dport 53 -s 180.169.223.10 -j ACCEPT ，则不会生效
+
+-A参数是append，添加的规则会放在追后面，而前面已经有REJECT 该端口所有的访问了，那么这条ACCEPT就不会生效。
+
+所以这里-A要改成-I，也就是insert的意思，插入一条记录，那么这条就会放在最前面，就在那条REJECT前面了，这样就能生效。
+
+
+
+
 
 ### example iptables 
 ```bash
