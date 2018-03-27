@@ -1,26 +1,32 @@
 <p align='center'> <a href='https://github.com/alvinwancn' target="_blank"> <img src='https://github.com/AlvinWanCN/life-record/raw/master/images/etlucency.png' alt='Alvin Wan' width=200></a></p>
 
 
-## nat for aliyun intranet
 
+## 本地端口转发为目标服务器器指定端口
 
-第一条iptables命令表示接受来自eth0网段在我们这进行装发
-
-第二条iptables命令表示POSTROUTING，POSTROUTING是源地址转换，要把你的内网地址转换成公网地址才能让你上网。
-
+## 将本地192.168.38.1端口上的80转发到192.168.127.51的80上。
 
 ```bash
-[root@natasha ~]# ifconfig eth0
-eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
-        inet 172.31.33.93  netmask 255.255.240.0  broadcast 172.31.47.255
-        ether 00:16:3e:02:13:8b  txqueuelen 1000  (Ethernet)
-        RX packets 5293956  bytes 614041345 (585.5 MiB)
-        RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 753012  bytes 668844131 (637.8 MiB)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+iptables -t nat -I PREROUTING -d 192.168.38.1 -p tcp --dport 80 -j DNAT --to-destination 192.168.127.51:80
+```
+上面这条规则配置了如何过去转发本地80到目标服务器，但是数据回来之后还要伪装修改一下才能返回给客户端，需要还需要添加一条。
+所有来自192.168.38.0网段的对于目标服务器192.168.127.51的tcp端口为80的请求，都伪装成本服务器
+如果使用-s -d -p --dport -o 之类的参数，就是默认对所有都开放。不指定网段，不指定端口，那么所有通过该服务器装发出去的对所有端口的请求，都会变成该服务器发出的请求。
 
-[root@natasha ~]#
-[root@natasha ~]# iptables -A FORWARD -i eth0 -j ACCEPT
-[root@natasha ~]# iptables -t nat -A POSTROUTING -s 172.31.0.0/16 -o eth0 -j MASQUERADE
+```
+iptables -t nat -I POSTROUTING -s 192.168.38.0/24 -d 192.168.127.51 -p tcp --dport 80 -j MASQUERADE
+```
 
+或者可以用下面的命令，将-j MASQUERADE换成--to-source 192.168.127.1，效果是一样的，只是指定了ip。 这两条命令用其中一条就可以了，
+```
+iptables -t nat -I POSTROUTING -s 192.168.38.0/24 -d 192.168.127.51 -p tcp --dport 80 -j SNAT --to-source 192.168.127.1
+
+```
+
+## 本地端口转发到本地其他端口
+
+将80端口转发到8080
+
+```bash
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
 ```
