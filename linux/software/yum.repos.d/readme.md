@@ -19,3 +19,9 @@
 ```bash
 # curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/TechnologyCenter/master/linux/software/yum.repos.d/zabbix3.4.repo > /etc/yum.repos.d/zabbix3.4.repo
 ```
+
+
+## add openstack pick centos7 yum reposiroty
+```bash
+# curl -fsSL https://raw.githubusercontent.com/AlvinWanCN/TechnologyCenter/master/linux/software/yum.repos.d/openstack_pick_centos7.repo > /etc/yum.repos.d/openstack_pick_centos7.repo
+```
