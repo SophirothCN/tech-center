@@ -41,4 +41,6 @@ docker service
 进入到容器里面
 ```````````````````
 
-docker exec -it centos /bin/bash
+.. code-block:: bash
+
+    docker exec -it centos /bin/bash
