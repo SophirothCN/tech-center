@@ -8,44 +8,40 @@ docker run
 
 
 -d
-````````
- 后台运行容器，并返回容器ID
+````
+后台运行容器，并返回容器ID
 
 -a
-````````
+````
+stdin: 指定标准输入输出内容类型，可选 STDIN/STDOUT/STDERR 三项；
 
- stdin: 指定标准输入输出内容类型，可选 STDIN/STDOUT/STDERR 三项；
 
-- -d
-
- 后台运行容器，并返回容器ID；
-
-- -i
-
+-i
+````
  以交互模式运行容器，通常与 -t 同时使用；
 
-- -t
-
+-t
+````
  为容器重新分配一个伪输入终端，通常与 -i 同时使用；
 
-- --name="nginx-lb"
-
+--name="nginx-lb"
+````````````````````
   为容器指定一个名称；
 
-- --dns 8.8.8.8
-
+--dns 8.8.8.8
+````````````````
  指定容器使用的DNS服务器，默认和宿主一致；
 
-- --dns-search example.com
-
+--dns-search example.com
+````````````````````````````
  指定容器DNS搜索域名，默认和宿主一致；
 
-- -h "mars"
-
+-h "alvindb"
+````````````````````
  指定容器的hostname；
 
-- -e username="ritchie"
-
+-e username="ritchie"
+````````````````````````
  设置环境变量；
 
 - --env-file=[]
