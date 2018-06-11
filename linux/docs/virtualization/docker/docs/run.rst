@@ -11,7 +11,8 @@ docker run
 ````````
  后台运行容器，并返回容器ID
 
-- -a
+-a
+````````
 
  stdin: 指定标准输入输出内容类型，可选 STDIN/STDOUT/STDERR 三项；
 
