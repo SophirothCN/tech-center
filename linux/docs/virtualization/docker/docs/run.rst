@@ -2,6 +2,7 @@
 docker run
 ###########
 
+.. contents::
 
 本文描述docker run 后跟的参数代表的意义
 
@@ -84,9 +85,9 @@ docker run
 
    在容器非正常退出时（退出状态非0），才会重启容器.
 
-    - on-failure:3
+     - on-failure:3
 
-     在容器非正常退出时重启容器，最多重启3次
+      在容器非正常退出时重启容器，最多重启3次
 
   - on-failure
 
