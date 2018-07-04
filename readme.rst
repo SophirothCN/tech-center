@@ -3,8 +3,10 @@ Alvin's Technology Center
 
 .. contents::
 
-Common commands
+Common command
 `````````````````
+common service
+````````````````
 
 System optimize
 ``````````````````
