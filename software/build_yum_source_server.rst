@@ -128,24 +128,23 @@ touch exclude_epel.list   #创建文件
 
 例如：
 
-vi exclude_epel.list
+.. code-block:: bash
 
-4/
+    echo '
+    4/
+    4AS/
+    4ES/
+    4WS/
+    '>exclude_epel.list
 
-4AS/
+.. code-block:: bash
 
-4ES/
-
-4WS/
-
-:wq! #保存退出
-
-echo'
-/centos/7.5.1804/isos/
-/centos/7/isos/
-/centos/6/isos/
-/centos/6.9/isos/
-'>exclude_centos.list
+    echo'
+    /centos/7.5.1804/isos/
+    /centos/7/isos/
+    /centos/6/isos/
+    /centos/6.9/isos/
+    '>exclude_centos.list
 
 四、添加脚本定时执行任务
 ----------------------------------------------------
