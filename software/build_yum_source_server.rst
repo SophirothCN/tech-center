@@ -140,6 +140,12 @@ vi exclude_epel.list
 
 :wq! #保存退出
 
+echo'
+/centos/7.5.1804/isos/
+/centos/7/isos/
+/centos/6/isos/
+/centos/6.9/isos/
+'>exclude_centos.list
 
 四、添加脚本定时执行任务
 ----------------------------------------------------
@@ -405,57 +411,57 @@ gpgkey=http://dc.alv.pub/centos/RPM-GPG-KEY-CentOS-6
 
 CentOS 7.x系列：
 
-vi /etc/yum.repos.d/CentOS-Base.repo #添加以下代码
-# CentOS-Base.repo
-#
-# The mirror system uses the connecting IP address of the client and the
-# update status of each mirror to pick mirrors that are updated to and
-# geographically close to the client. You should use this for CentOS updates
-# unless you are manually picking other mirrors.
-#
-# If the mirrorlist= does not work for you, as a fall back you can try the
-# remarked out baseurl= line instead.
-#
+.. code-block:: bash
 
-[base]
-name=CentOS-$releasever - Base
-#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os
-baseurl=http://dc.alv.pub/centos/$releasever/os/$basearch/
-gpgcheck=1
-gpgkey=http://dc.alv.pub/centos/RPM-GPG-KEY-CentOS-7
+    vi /etc/yum.repos.d/CentOS-Base.repo #添加以下代码
+    # CentOS-Base.repo
+    #
+    # The mirror system uses the connecting IP address of the client and the
+    # update status of each mirror to pick mirrors that are updated to and
+    # geographically close to the client. You should use this for CentOS updates
+    # unless you are manually picking other mirrors.
+    #
+    # If the mirrorlist= does not work for you, as a fall back you can try the
+    # remarked out baseurl= line instead.
+    #
 
-#released updates
-[updates]
-name=CentOS-$releasever - Updates
-#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates
-baseurl=http://dc.alv.pub/centos/$releasever/updates/$basearch/
-gpgcheck=1
-gpgkey=http://dc.alv.pub/centos/RPM-GPG-KEY-CentOS-7
+    [base]
+    name=CentOS-$releasever - Base
+    #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os
+    baseurl=http://dc.alv.pub/centos/$releasever/os/$basearch/
+    gpgcheck=1
+    gpgkey=http://dc.alv.pub/centos/RPM-GPG-KEY-CentOS-7
 
-#additional packages that may be useful
-[extras]
-name=CentOS-$releasever - Extras
-#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras
-baseurl=http://dc.alv.pub/centos/$releasever/extras/$basearch/
-gpgcheck=1
-gpgkey=http://dc.alv.pub/centos/RPM-GPG-KEY-CentOS-7
+    #released updates
+    [updates]
+    name=CentOS-$releasever - Updates
+    #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates
+    baseurl=http://dc.alv.pub/centos/$releasever/updates/$basearch/
+    gpgcheck=1
+    gpgkey=http://dc.alv.pub/centos/RPM-GPG-KEY-CentOS-7
 
-#additional packages that extend functionality of existing packages
-[centosplus]
-name=CentOS-$releasever - Plus
-#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=centosplus
-baseurl=http://dc.alv.pub/centos/$releasever/centosplus/$basearch/
-gpgcheck=1
-enabled=0
-gpgkey=http://dc.alv.pub/centos/RPM-GPG-KEY-CentOS-7
+    #additional packages that may be useful
+    [extras]
+    name=CentOS-$releasever - Extras
+    #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras
+    baseurl=http://dc.alv.pub/centos/$releasever/extras/$basearch/
+    gpgcheck=1
+    gpgkey=http://dc.alv.pub/centos/RPM-GPG-KEY-CentOS-7
 
-:wq! #保存退出
+    #additional packages that extend functionality of existing packages
+    [centosplus]
+    name=CentOS-$releasever - Plus
+    #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=centosplus
+    baseurl=http://dc.alv.pub/centos/$releasever/centosplus/$basearch/
+    gpgcheck=1
+    enabled=0
+    gpgkey=http://dc.alv.pub/centos/RPM-GPG-KEY-CentOS-7
 
 #########################
 
 或者参考：https://lug.ustc.edu.cn/wiki/mirrors/help/centos
 
-把里面的http://mirrors.ustc.edu.cn/替换为http://dc.alv.pub/
+把里面的http://mirrors.ustc.edu.cn/替换为http://dc.alv.pub/, 因为我们这台服务器的主机名和域名是dc.alv.pub
 
 2、rpmforge源：
 
@@ -563,34 +569,34 @@ gpgcheck = 1
 
 CentOS 7.x系列：
 
-vi /etc/yum.repos.d/rpmforge.repo #添加以下代码
 
-[rpmforge]
-name = RHEL $releasever - RPMforge.net - dag
-baseurl = http://dc.alv.pub/repoforge/redhat/el7/en/$basearch/rpmforge
-enabled = 1
-protect = 0
-gpgkey=http://dc.alv.pub/repoforge/RPM-GPG-KEY-rpmforge
-gpgcheck = 1
+.. code-block:: bash
+    vi /etc/yum.repos.d/rpmforge.repo #添加以下代码
 
-[rpmforge-extras]
-name = RHEL $releasever - RPMforge.net - extras
-baseurl = http://dc.alv.pub/repoforge/redhat/el7/en/$basearch/extras
-enabled = 0
-protect = 0
-gpgkey=http://dc.alv.pub/repoforge/RPM-GPG-KEY-rpmforge
-gpgcheck = 1
+    [rpmforge]
+    name = RHEL $releasever - RPMforge.net - dag
+    baseurl = http://dc.alv.pub/repoforge/redhat/el7/en/$basearch/rpmforge
+    enabled = 1
+    protect = 0
+    gpgkey=http://dc.alv.pub/repoforge/RPM-GPG-KEY-rpmforge
+    gpgcheck = 1
 
-[rpmforge-testing]
-name = RHEL $releasever - RPMforge.net - testing
-baseurl = http://dc.alv.pub/repoforge/redhat/el7/en/$basearch/testing
-enabled = 0
-protect = 0
-gpgkey=http://dc.alv.pub/repoforge/RPM-GPG-KEY-rpmforge
-gpgcheck = 1
+    [rpmforge-extras]
+    name = RHEL $releasever - RPMforge.net - extras
+    baseurl = http://dc.alv.pub/repoforge/redhat/el7/en/$basearch/extras
+    enabled = 0
+    protect = 0
+    gpgkey=http://dc.alv.pub/repoforge/RPM-GPG-KEY-rpmforge
+    gpgcheck = 1
 
+    [rpmforge-testing]
+    name = RHEL $releasever - RPMforge.net - testing
+    baseurl = http://dc.alv.pub/repoforge/redhat/el7/en/$basearch/testing
+    enabled = 0
+    protect = 0
+    gpgkey=http://dc.alv.pub/repoforge/RPM-GPG-KEY-rpmforge
+    gpgcheck = 1
 
-:wq! #保存退出
 
 #########################
 
@@ -698,34 +704,33 @@ gpgcheck=1
 
 CentOS 7.x系列：
 
+.. code-block:: bash
 
-vi /etc/yum.repos.d/epel.repo #添加以下代码
-[epel]
-name=Extra Packages for Enterprise Linux 7 - $basearch
-baseurl=http://dc.alv.pub/epel/beta/7/$basearch
-failovermethod=priority
-enabled=1
-gpgcheck=1
-gpgkey =http://dc.alv.pub/epel/RPM-GPG-KEY-EPEL-7
+    vi /etc/yum.repos.d/epel.repo #添加以下代码
+    [epel]
+    name=Extra Packages for Enterprise Linux 7 - $basearch
+    baseurl=http://dc.alv.pub/epel/beta/7/$basearch
+    failovermethod=priority
+    enabled=1
+    gpgcheck=1
+    gpgkey =http://dc.alv.pub/epel/RPM-GPG-KEY-EPEL-7
 
-[epel-debuginfo]
-name=Extra Packages for Enterprise Linux 7 - $basearch - Debug
-baseurl=http://dc.alv.pub/epel/beta/7/$basearch/debug
-failovermethod=priority
-enabled=0
-gpgkey =http://dc.alv.pub/epel/RPM-GPG-KEY-EPEL-7
-gpgcheck=1
+    [epel-debuginfo]
+    name=Extra Packages for Enterprise Linux 7 - $basearch - Debug
+    baseurl=http://dc.alv.pub/epel/beta/7/$basearch/debug
+    failovermethod=priority
+    enabled=0
+    gpgkey =http://dc.alv.pub/epel/RPM-GPG-KEY-EPEL-7
+    gpgcheck=1
 
-[epel-source]
-name=Extra Packages for Enterprise Linux 7 - $basearch - Source
-baseurl=http://dc.alv.pub/epel/beta/7/SRPMS
-failovermethod=priority
-enabled=0
-gpgkey =http://dc.alv.pub/epel/RPM-GPG-KEY-EPEL-7
-gpgcheck=1
-
-
-:wq! #保存退出
+    [epel-source]
+    name=Extra Packages for Enterprise Linux 7 - $basearch - Source
+    baseurl=http://dc.alv.pub/epel/beta/7/SRPMS
+    failovermethod=priority
+    enabled=0
+    gpgkey =http://dc.alv.pub/epel/RPM-GPG-KEY-EPEL-7
+    gpgcheck=1
+    :wq! #保存退出
 
 #########################
 
