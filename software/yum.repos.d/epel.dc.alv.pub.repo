@@ -8,16 +8,16 @@ gpgkey =http://dc.alv.pub/epel/RPM-GPG-KEY-EPEL-7
 
 [epel-debuginfo]
 name=Extra Packages for Enterprise Linux 7 - $basearch - Debug
-baseurl=http://dc.alv.pub/epel/beta/7/$basearch/debug
+baseurl=http://dc.alv.pub/epel/7/$basearch/debug
 failovermethod=priority
-enabled=0
+enabled=1
 gpgkey =http://dc.alv.pub/epel/RPM-GPG-KEY-EPEL-7
 gpgcheck=1
 
 [epel-source]
 name=Extra Packages for Enterprise Linux 7 - $basearch - Source
-baseurl=http://dc.alv.pub/epel/beta/7/SRPMS
+baseurl=http://dc.alv.pub/epel/7/SRPMS
 failovermethod=priority
-enabled=0
+enabled=1
 gpgkey =http://dc.alv.pub/epel/RPM-GPG-KEY-EPEL-7
 gpgcheck=1
