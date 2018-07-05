@@ -13,7 +13,6 @@ systemd service
 systemd简介
 ``````````````````
 
-.. code-block:: text
 
     Linux Init & CentOS systemd
     Linux一直以来采用init进程。例如下面的命令用来启动服务：
