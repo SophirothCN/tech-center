@@ -22,7 +22,7 @@
 
 [base]
 
-name=CentOS-$releasever - Base - huanqiu.com
+name=CentOS-$releasever - Base
 
 baseurl=http://dc.alv.pub/centos/$releasever/os/$basearch/
 
@@ -30,7 +30,7 @@ baseurl=http://dc.alv.pub/centos/$releasever/os/$basearch/
 
 gpgcheck=1
 
-gpgkey=http://dc.alv.pub/centos/RPM-GPG-KEY-CentOS-6
+gpgkey=http://dc.alv.pub/centos/RPM-GPG-KEY-CentOS-5
 
 #released updates
 
@@ -44,7 +44,21 @@ baseurl=http://dc.alv.pub/centos/$releasever/updates/$basearch/
 
 gpgcheck=1
 
-gpgkey=http://dc.alv.pub/centos/RPM-GPG-KEY-CentOS-6
+gpgkey=http://dc.alv.pub/centos/RPM-GPG-KEY-CentOS-5
+
+#packages used/produced in the build but not released
+
+[addons]
+
+name=CentOS-$releasever -
+
+baseurl=http://dc.alv.pub/centos/$releasever/addons/$basearch/
+
+#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=addons
+
+gpgcheck=1
+
+gpgkey=http://dc.alv.pub/centos/RPM-GPG-KEY-CentOS-5
 
 #additional packages that may be useful
 
@@ -58,13 +72,13 @@ baseurl=http://dc.alv.pub/centos/$releasever/extras/$basearch/
 
 gpgcheck=1
 
-gpgkey=http://dc.alv.pub/centos/RPM-GPG-KEY-CentOS-6
+gpgkey=http://dc.alv.pub/centos/RPM-GPG-KEY-CentOS-5
 
 #additional packages that extend functionality of existing packages
 
 [centosplus]
 
-name=CentOS-$releasever - Plus - huanqiu.com
+name=CentOS-$releasever - Plus
 
 baseurl=http://dc.alv.pub/centos/$releasever/centosplus/$basearch/
 
@@ -74,7 +88,7 @@ gpgcheck=1
 
 enabled=0
 
-gpgkey=http://dc.alv.pub/centos/RPM-GPG-KEY-CentOS-6
+gpgkey=http://dc.alv.pub/centos/RPM-GPG-KEY-CentOS-5
 
 #contrib - packages by Centos Users
 
@@ -90,4 +104,4 @@ gpgcheck=1
 
 enabled=0
 
-gpgkey=http://dc.alv.pub/centos/RPM-GPG-KEY-CentOS-6
+gpgkey=http://dc.alv.pub/centos/RPM-GPG-KEY-CentOS-5
