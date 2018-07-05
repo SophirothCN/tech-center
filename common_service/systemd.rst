@@ -1,6 +1,8 @@
 systemd service
 ####################
 
+.. contents::
+
 需求
 ``````````
 运行环境为CentOS 7系统，我们开发了一个程序，需要在开机时启动它，当程序进程crash之后，守护进程立即拉起进程。
@@ -15,7 +17,9 @@ systemd简介
 
 
 Linux Init & CentOS systemd
+
 Linux一直以来采用init进程。例如下面的命令用来启动服务：
+
 $ sudo /etc/init.d/apache2 start
 或者\ $ service apache2 start
 
