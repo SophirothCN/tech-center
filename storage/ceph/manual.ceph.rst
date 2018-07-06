@@ -54,5 +54,12 @@ ceph创建pool
 
 .. code-block:: bash
 
-ceph osd pool stats
-ceph osd pool stats vms
+    ceph osd pool stats
+    ceph osd pool stats vms
+
+ceph客户端软件安装
+```````````````````````
+
+.. code-block:: bash
+
+    yum install python-rbd ceph-common  -y
