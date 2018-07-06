@@ -15,6 +15,7 @@ systemd service
 systemd简介
 ``````````````````
 
+参考资料:https://blog.csdn.net/shuaixingi/article/details/49641721
 
 Linux Init & CentOS systemd
 
@@ -39,3 +40,38 @@ Init：
 systemd为了解决上文的问题而诞生。它的目标是，为系统的启动和管理提供一套完整的解决方案。根据linux惯例，字母d是守护进程（daemon） 的缩写。Systemd名字的含义就是 守护整个系统。Centos 7里systemd代替了init，成为了系统的第一个进程。PID为1.其他所有的进程都是它的子进程。
 
 systemd 是 Linux 下的一款系统和服务管理器，兼容 SysV 和 LSB 的启动脚本。systemd 的特性有：支持并行化任务；同时采用 socket 式与 D-Bus 总线式激活服务；按需启动守护进程（daemon）；利用 Linux 的 cgroups 监视进程；支持快照和系统恢复；维护挂载点和自动挂载点；各服务间基于依赖关系进行精密控制。
+
+
+systemd文件示例：
+`````````````````````
+ExecStart后面的，就是启动该服务器时要执行的命令，可以说是单个脚本，也可以是一个命令加参数。
+
+.. code-block:: bash
+
+    echo '
+    [Unit]
+    Description=The Sophiroth Service
+    After=syslog.target network.target salt-master.service
+
+    [Service]
+    Type=simple
+    User=alvin
+    WorkingDirectory=/opt/sophiroth-pxe
+    ExecStart=/usr/bin/python2 -m CGIHTTPServer 8001
+    KillMode=process
+    Restart=on-failure
+    RestartSec=3s
+
+    [Install]
+    WantedBy=multi-user.target graphic.target
+    ' > /usr/lib/systemd/system/sophiroth-pxe.service
+
+启动 sophroth-pxe服务
+```````````````````````````
+
+.. code-block:: bash
+
+    systemctl enable sophiroth-pxe
+    systemctl start sophiroth-pxe
+    systemctl status sophiroth-pxe
+    lsof -i:8001
