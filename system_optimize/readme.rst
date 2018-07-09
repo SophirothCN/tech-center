@@ -54,3 +54,14 @@ DefaultTimeoutStopSec=10s
 
 1
 # sync
+
+
+已打开文件达到上限(ulimit)
+```````````````````````````
+
+echo "*      soft    nofile     65536" >> /etc/security/limits.conf
+echo "*      hard    nofile     65536" >> /etc/security/limits.conf
+
+
+
+

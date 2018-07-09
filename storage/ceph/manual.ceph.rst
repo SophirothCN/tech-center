@@ -27,7 +27,15 @@ rdb创建一个块设备
     rbd info test1
 
 
+rbd映射
+````````````````
+这里我们讲test1映射为rbd0了，
+.. code-block:: bash
 
+    rbd map test1
+    lsblk
+    ls -l /dev/rbd0
+    rbd showmapped
 
 
 
@@ -63,3 +71,18 @@ ceph客户端软件安装
 .. code-block:: bash
 
     yum install python-rbd ceph-common  -y
+
+
+创建ceph用户和密钥
+`````````````````````
+
+ceph auth get-or-create client.cinder mon 'allow r' osd 'allow class-read object_prefix rbd_children, allow rwx pool=volumes, allow rwx pool=vms, allow rx pool=images'
+ceph auth get-or-create client.glance mon 'allow r' osd 'allow class-read object_prefix rbd_children, allow rwx pool=images'
+ceph auth get-or-create client.cinder-backup mon 'allow r' osd 'allow class-read object_prefix rbd_children, allow rwx pool=backups'
+
+ceph 用户验证列表
+```````````````````````
+
+.. code-block:: bash
+
+    ceph auth list
