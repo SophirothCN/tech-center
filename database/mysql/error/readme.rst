@@ -1,7 +1,7 @@
 mysql error
 #####################
 
-
+.. contents::
 
 
 
