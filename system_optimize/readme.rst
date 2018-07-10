@@ -93,5 +93,14 @@ echo "*      hard    nofile     65536" >> /etc/security/limits.conf
 查看当前系统下有哪些程序在运行（Running状态）
 ```````````````````````````````````
 
-ps aux|egrep -v "aux|grep"|grep R
+.. code-block:: bash
 
+    ps aux|egrep -v "aux|grep"|grep R
+
+
+systemctl tab自动补全
+```````````````````````````
+
+.. code-block:: bash
+
+    yum install -y bash-completion
