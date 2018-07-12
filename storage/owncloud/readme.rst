@@ -42,3 +42,8 @@ visit service
 
 
 http://url/owncloud
+
+data directory
+```````````````````
+
+/var/lib/owncloud/data/
