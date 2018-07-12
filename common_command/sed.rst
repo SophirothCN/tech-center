@@ -28,3 +28,18 @@ sed （stream editor）
 .. code-block:: bash
 
     sed ':a;N;s/\n/+/g;ta' 1.txt
+
+匹配行前或后增加指定内容
+````````````````````````
+
+a是append， 在匹配行后面增加一行指定内容，下面是在file文件里在匹配到aa的行的后面增加内容qqq
+
+.. code-block:: bash
+
+    sed -i /aa/a\qqq file
+
+i是insert， 在匹配行前面插入一行指定内容，下面是在file文件里在匹配到aa的行的前面增加内容qqq
+
+.. code-block:: bash
+
+    sed -i /aa/i\qqq file
