@@ -19,3 +19,17 @@ endpoint 列表
     openstack endpoint list --service nova
 
 
+
+查看网络代理列表
+`````````````````````
+
+.. code-block:: bash
+
+    openstack network agent list
+
+查看计算服务列表
+````````````````````````
+
+.. code-block:: bash
+
+    openstack compute service list
