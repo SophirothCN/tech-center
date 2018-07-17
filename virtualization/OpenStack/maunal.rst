@@ -142,8 +142,10 @@ endpoint 列表
 
 m1.nano 主机类型，net-id后面是网络ID号,Dell01 可用域
 ```````````````````````````````````````````````````````
+.. code-block:: bash
 
     #创建虚拟机 kvm01-cirros
+
     NET=`openstack network list|grep 'net_10.2'|awk '{print $2}'`
     echo $NET
     nova boot --flavor m1.nano --image cirros \
