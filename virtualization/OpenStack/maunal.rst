@@ -147,10 +147,10 @@ m1.nano 主机类型，net-id后面是网络ID号,Dell01 可用域
     NET=`openstack network list|grep 'net_10.2'|awk '{print $2}'`
     echo $NET
     nova boot --flavor m1.nano --image cirros \
-      --nic net-id=$NET \
-      --security-group default --key-name mykey \
-      --availability-zone Dell01 \
-      kvm01-cirros
+    --nic net-id=$NET \
+    --security-group default --key-name mykey \
+    --availability-zone Dell01 \
+    kvm01-cirros
 
 查看虚拟机实例列表
 `````````
