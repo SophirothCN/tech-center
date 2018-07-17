@@ -164,6 +164,7 @@ m1.nano 主机类型，net-id后面是网络ID号,Dell01 可用域
 `````````````````````````
 
 这里我们查看虚拟机kvm01-cirros的vnc地址
+
 .. code-block:: bash
 
     openstack console url show kvm01-cirros
