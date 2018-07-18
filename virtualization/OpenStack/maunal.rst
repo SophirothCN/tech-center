@@ -73,6 +73,11 @@ endpoint 列表
 
     openstack compute service list
 
+查看hypervisor列表
++++++++++++++++++++++++
+.. code-block:: bash
+
+    openstack hypervisor list
 
 查看虚拟机实例列表
 +++++++++++++++++++++
