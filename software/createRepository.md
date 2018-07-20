@@ -1,6 +1,8 @@
 
 # Create Repository
 
+yum install --downloadonly --downloaddir=/www/share/centos7_openstack_rpm/ httpd
+
 ## Make Openstack Repository
 
 
@@ -9,6 +11,7 @@
 yum install centos-release-openstack-pike -y #安装OpenStack官方源
 sed -i 's/\$contentdir/centos-7/' /etc/yum.repos.d/CentOS-QEMU-EV.repo
 mkdir -p /www/share/centos7_openstack_rpm/
+
 yum install --downloadonly --downloaddir=/www/share/centos7_openstack_rpm/ -y \
 python-openstackclient openstack-selinux python-openstackclient python2-PyMySQL \
 openstack-utils \
