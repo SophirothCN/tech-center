@@ -19,13 +19,13 @@ find
 
 支持通配符,使用通配符的是要要加引号。
 
-.. code-block::
+::
 
     find /var/log/ -name '*.log'
 
 
 要忽略 a 目录：
 ```````````````````
-.. code-block:: bash
+::
 
     find . -path ./a -prune -o -type f -name s.txt -print
